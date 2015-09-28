@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928191044) do
+ActiveRecord::Schema.define(version: 20150928191826) do
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,5 +36,27 @@ ActiveRecord::Schema.define(version: 20150928191044) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "work_tags", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "work_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "work_tags", ["tag_id"], name: "index_work_tags_on_tag_id"
+  add_index "work_tags", ["work_id"], name: "index_work_tags_on_work_id"
+
+  create_table "works", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "img_url"
+    t.string   "medium"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "works", ["user_id"], name: "index_works_on_user_id"
 
 end
