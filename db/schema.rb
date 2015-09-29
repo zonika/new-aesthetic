@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928200210) do
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150929144526) do
+=======
+ActiveRecord::Schema.define(version: 20150928193521) do
+>>>>>>> 25952218f37e0f423934da40c54dfc3e884d8fc0
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -56,8 +60,20 @@ ActiveRecord::Schema.define(version: 20150928200210) do
     t.string   "img_url"
     t.string   "medium"
     t.string   "type"
+<<<<<<< HEAD
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+=======
+    t.float    "height"
+    t.float    "width"
+    t.float    "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+>>>>>>> 25952218f37e0f423934da40c54dfc3e884d8fc0
   end
 
   add_index "works", ["user_id"], name: "index_works_on_user_id"
