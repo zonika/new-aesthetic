@@ -9,8 +9,8 @@
 <%= form_for [@user, Work.new] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
-  <%= f.label :image_url, 'Image' %>
-  <%= f.file_field :image_url %>
+  <%= f.label :image, 'Image' %>
+  <%= f.file_field :image %>
   <%= f.submit "Upload Photo" %>
 <% end %>
 <% else %>
