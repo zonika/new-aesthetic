@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:masterpiece)
+    params.require(:user).permit(:masterpiece,:id)
   end
 
 end

@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tags %>
+
   </head>
   <body>
 
@@ -14,9 +16,14 @@
 	<div class="cover-container">
 	  <div class="inner cover">
 	    <h1>NEW AESTHETICS</h1>
-	    <p class="lead">the new arts network</p>
-	    <p class="lead"><a href="/users/sign_in" class="btn btn-lg btn-default">login</a>
-	    <p class="lead"><a href="/users/sign_up" class="btn btn-lg btn-default">signup</a>
+  	    <p class="lead">the new arts network</p>
+        <% if !user_signed_in? %>
+    	    <p class="lead"> <%= link_to 'login', new_user_session_path, class:"btn btn-lg btn-default" %></p>
+    	    <p class="lead"> <%= link_to "sign up",new_user_registration_path, class:"btn btn-lg btn-default"  %> </p>
+        <% else %>
+          <p class="lead"> <%= link_to "User", profile_path(current_user) %> </p>
+          <%= link_to "signout", destroy_user_session_path, :method => :delete %>
+        <% end %>
 	  </div>
 	</div>
       </div>
