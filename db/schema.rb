@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928200210) do
+ActiveRecord::Schema.define(version: 20150928193521) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(version: 20150928200210) do
     t.string   "img_url"
     t.string   "medium"
     t.string   "type"
+    t.float    "height"
+    t.float    "width"
+    t.float    "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

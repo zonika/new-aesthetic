@@ -6,6 +6,9 @@ class CreateWorks < ActiveRecord::Migration
       t.string :img_url
       t.string :medium
       t.string :type
+      t.float :height
+      t.float :width
+      t.float :length
       t.timestamps null: false
     end
     add_foreign_key :works, :users
