@@ -1,2 +1,6 @@
-<%= link_to "Edit", edit_profile_path %>
-<%= render @user.works %>
+<% if user_signed_in? %>
+  <%= link_to "Edit", edit_profile_path %>
+  <%= render @user.works %>
+<% else %>
+  You must be signed in to see this page
+<% end %>

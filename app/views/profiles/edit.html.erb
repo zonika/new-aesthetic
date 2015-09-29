@@ -1,9 +1,15 @@
-Pick your masterpiece
-<%= form_for @user, url: profile_path(@user) do |f| %>
-  <% @user.works.each do |work| %>
-    <%= f.radio_button :masterpiece, work.id %> <%= image_tag work.image.url(:medium) %> <%= link_to "X", profile_work_path(@user, work), method: :delete %> <br>
+<% if user_signed_in? %>
+  <% if @user.works %>
+    Pick your masterpiece
+    <%= form_for @user, url: profile_path(@user) do |f| %>
+      <% @user.works.each do |work| %>
+        <%= f.radio_button :masterpiece, work.id %> <%= image_tag work.image.url(:medium) %> <%= link_to "X", profile_work_path(@user, work), method: :delete %> <br>
+      <% end %>
+      <%= f.submit "Save" %>
+    <% end %>
   <% end %>
-  <%= f.submit "Save" %>
+  New Work:
+  <%= render '/works/upload' %>
+<% else %>
+  You must be signed in to see this page
 <% end %>
-New Work:
-<%= render '/works/upload' %>
