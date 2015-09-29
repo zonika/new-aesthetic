@@ -30,6 +30,8 @@ gem 'aws-sdk', '< 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -56,6 +58,7 @@ group :test, :development do
   gem 'pry'
   gem 'guard-rspec', require: false
   gem 'thin'
+
 end
 
 group :production do

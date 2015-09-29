@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def edit
-
+    @user = current_user
   end
 
   def show
@@ -8,11 +8,17 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    current_user.update(user_params)
+    redirect_to show
   end
 
   def destroy
 
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:masterpiece)
   end
 
 end

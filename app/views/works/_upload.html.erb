@@ -1,0 +1,11 @@
+<% if @user.works.length < 3 %>
+  <%= form_for [@user, Work.new], html: {multipart: true} do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :image, 'Image' %>
+    <%= f.file_field :image %>
+    <%= f.submit "Upload Photo" %>
+  <% end %>
+<% else %>
+  You can only upload 3 images!
+<% end %>

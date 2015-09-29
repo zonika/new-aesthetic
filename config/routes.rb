@@ -5,6 +5,4 @@ Rails.application.routes.draw do
   end
   get '/', to: 'home#index'
   get '/about', to: 'home#about', as: 'about'
-
-  get '/portfolio', to: 'works#index', as: 'portfolio'
 end

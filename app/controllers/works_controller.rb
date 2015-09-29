@@ -9,6 +9,17 @@ class WorksController < ApplicationController
     @user = current_user
   end
 
+  def update
+
+  end
+
+  def destroy
+    # binding.pry
+    work = Work.find(params[:id])
+    work.destroy
+    redirect_to edit_user_path
+  end
+
   private
 
   def work_params
