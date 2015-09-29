@@ -5,19 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-    <%= link_to "My Portfolio", user_path %><br>
-    Own feed (following artists)<br>
-    Collection (Pinned Collection)<br>
-    Discovery (Access to works and artists who display on the platform)<br>
+    <% if !user_signed_in? %>
+      Welcome <br>
+      <%= link_to "Sign in", new_user_session_path %> <br>
+      <%= link_to "Sign up", new_user_registration_path %><br>
+    <% else %>
+      <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> <br>
+      <%= link_to "My Portfolio", user_path(current_user) %><br>
+      Own feed (following artists)<br>
+      Collection (Pinned Collection)<br>
+      Discovery (Access to works and artists who display on the platform)<br>
     <% end %>
     <%= link_to "About us", about_path %> <br>
-    
-    <%= yield %>
 
+      <%= yield %>
+      
   </body>
 </html>

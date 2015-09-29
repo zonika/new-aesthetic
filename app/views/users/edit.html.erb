@@ -1,7 +1,7 @@
 Pick your masterpiece
 <%= form_for @user do |f| %>
   <% @user.works.each do |work| %>
-    <%= f.radio_button :masterpiece, work.id %> <%= image_tag work.image.url(:medium) %> <%= link_to "Delete Image", user_work_path(@user, work), method: :delete %> <br>
+    <%= f.radio_button :masterpiece, work.id %> <%= image_tag work.image.url(:medium) %> <%= link_to "X", user_work_path(@user, work), method: :delete %> <br>
   <% end %>
   <%= f.submit "Save" %>
 <% end %>
