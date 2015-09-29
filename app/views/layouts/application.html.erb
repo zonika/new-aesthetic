@@ -8,6 +8,17 @@
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
+  <% if !user_signed_in? %>
+  Welcome <br>
+  <%= link_to "Sign in", new_user_session_path %> <br>
+  <%= link_to "Sign up", new_user_registration_path %><br>
+  <% else %>
+  <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>
+  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> <br>
+
+  Own feed (following artists)<br> Collection (Pinned Collection) <br> Discovery (Access to works and artists who display on the platform)
+  <% end %>
+  <%= link_to "About us", about_path %> <br>
 
 <%= yield %>
 
