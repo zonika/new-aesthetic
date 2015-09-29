@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929144526) do
+ActiveRecord::Schema.define(version: 20150929173751) do
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
