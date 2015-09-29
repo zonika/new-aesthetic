@@ -2,5 +2,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions", registrations: 'users/registrations' }
   get '/', to: 'home#index'
   get '/about', to: 'home#about', as: 'about'
-  get '/myportfolio', to: 'portfolio#home', as: 'portfolio'
+
+  get '/portfolio', to: 'work#index', as: 'portfolio'
 end
