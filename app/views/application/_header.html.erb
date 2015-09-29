@@ -9,10 +9,10 @@
       <li><a href="/users/sign_in">Collection</a></li>
       <li><a href="/users/sign_in">Discovery</a></li>
       <li><%= link_to "About us", about_path %></li>
-      <li><a href="/users/edit"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></a></li>
+      <li><%= link_to "User", profile_path(current_user) %></li>
       <% else %>
-      <li><a href="/users/sign_in">LOGIN</a></li>
-      <li><a href="/users/sign_up">SIGN UP</a></li>
+      <li> <%= link_to "LOG IN", new_user_session_path %> </li>
+      <li> <%= link_to "SIGN UP",new_user_registration_path %> </li>
     <% end %>
     </ul>
   </div>

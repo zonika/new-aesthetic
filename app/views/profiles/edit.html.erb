@@ -1,0 +1,9 @@
+Pick your masterpiece
+<%= form_for @user, url: profile_path(@user) do |f| %>
+  <% @user.works.each do |work| %>
+    <%= f.radio_button :masterpiece, work.id %> <%= image_tag work.image.url(:medium) %> <%= link_to "X", profile_work_path(@user, work), method: :delete %> <br>
+  <% end %>
+  <%= f.submit "Save" %>
+<% end %>
+New Work:
+<%= render '/works/upload' %>
