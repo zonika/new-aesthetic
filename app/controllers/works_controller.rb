@@ -14,7 +14,6 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     work = Work.find(params[:id])
     work.destroy
     redirect_to edit_profile_path
