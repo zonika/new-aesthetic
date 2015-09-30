@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.random_masterpiece
-    Work.find(User.where(artist: true).where.not(masterpiece: nil).sample.masterpiece).image.url(:large)
+  def self.random_user
+    User.where(artist: true).where.not(masterpiece: nil).sample
   end
 
 

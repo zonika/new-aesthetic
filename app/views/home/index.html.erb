@@ -30,7 +30,8 @@
       }
     </style>
     <div id="bg">
-      <%= image_tag User.random_masterpiece %>
+      <% user = User.random_user %>
+      <%= image_tag Work.find(user.masterpiece).image.url(:large) %>
     </div>
 
     <div class="site-wrapper">
@@ -46,6 +47,11 @@
           <p class="lead"> <%= link_to "User", profile_path(current_user) %> </p>
           <%= link_to "signout", destroy_user_session_path, :method => :delete %>
         <% end %>
+	  </div>
+	  <div class="mastfoot">
+	    <div class="inner">
+	      <p>photo by <%= user.first_name + " " + user.last_name %></p>
+	    </div>
 	  </div>
 	</div>
       </div>
