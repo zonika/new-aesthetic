@@ -50,7 +50,7 @@
 	  </div>
 	  <div class="mastfoot">
 	    <div class="inner">
-	      <p>photo by <%= user.first_name + " " + user.last_name %></p>
+	      <p><%= Work.find(user.masterpiece).name %> by <%= user.full_name %></p>
 	    </div>
 	  </div>
 	</div>
