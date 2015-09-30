@@ -32,7 +32,6 @@ gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
 gem 'dotenv-rails'
 
 group :development, :test do
