@@ -34,6 +34,7 @@
 			<%= image_tag Work.find(user.masterpiece).image.url(:large) %>
 		</div>
 
+<<<<<<< HEAD
 		<div class="site-wrapper">
 			<div class="site-wrapper-inner">
 				<div class="cover-container">
@@ -70,4 +71,29 @@
 		
 		<%= render(partial: 'sign_up', format: 'js') %>
 	</body>
+=======
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+	<div class="cover-container">
+	  <div class="inner cover">
+	    <h1>NEW AESTHETIC</h1>
+  	    <p class="lead">the new arts network</p>
+        <% if !user_signed_in? %>
+    	    <p class="lead"> <%= link_to 'login', new_user_session_path, class:"btn btn-lg btn-default" %></p>
+    	    <p class="lead"> <%= link_to "sign up",new_user_registration_path, class:"btn btn-lg btn-default"  %> </p>
+        <% else %>
+          <p class="lead"> <%= link_to current_user.full_name, profile_path(current_user) %> </p>
+        <% end %>
+	  </div>
+	  <div class="mastfoot">
+	    <div class="inner">
+	      <p><%= Work.find(user.masterpiece).name %> by <%= user.full_name %></p>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+  </body>
+>>>>>>> 3b30b88ce8fac935f5ac71dea2e0b73f9810362f
 </html>
