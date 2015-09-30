@@ -1,2 +1,10 @@
-<%= image_tag work.image.url(:large) %>
-<%= work.name %>
+<div class="col-md-4">
+  <div class="thumbnail_container">
+    <div class="thumbnail">
+      <%= image_tag work.image.url(:large) %>
+    </div>
+    <div class="thumbnail-text">
+      <%= work.name %>
+    </div>
+  </div>
+</div>

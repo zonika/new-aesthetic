@@ -1,2 +1,5 @@
-<%= link_to "Edit", edit_profile_path %>
+<h2><%= @user.first_name + " " + @user.last_name %></h2><br>
+<div class="row">
 <%= render @user.works %>
+</div><br>
+<%= link_to "Edit Works", edit_profile_path %>
