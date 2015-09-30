@@ -12,6 +12,11 @@ class ProfilesController < ApplicationController
     redirect_to show
   end
 
+  def search
+    @users = User.search(params[:query])
+    render 'search_results'
+  end
+
   private
   def user_params
     params.require(:user).permit(:masterpiece,:id)

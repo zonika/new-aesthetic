@@ -30,7 +30,6 @@ gem 'aws-sdk', '< 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
 gem 'dotenv-rails'
 
 group :development, :test do
