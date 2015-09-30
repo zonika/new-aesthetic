@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
 
   def update
     current_user.update(user_params)
-    redirect_to show
+    redirect_to edit_profile_path
   end
 
   def search
