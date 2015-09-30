@@ -2,4 +2,6 @@
 <div class="row">
 <%= render @user.works %>
 </div><br>
+<% if @user == current_user %>
 <%= link_to "Edit Works", edit_profile_path %>
+<% end %>
