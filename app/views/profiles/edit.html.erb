@@ -1,11 +1,10 @@
 <% if user_signed_in? %>
   <% if @user.works %>
-  Pick your masterpiece:
         <%= form_for @user, url: profile_path(@user) do |f| %>
 	<div class="row">
           <% @user.works.each do |work| %>
 	  <div class="col-md-4">
-	      <%= f.radio_button :masterpiece, work.id %>  <%= link_to "delete", profile_work_path(@user, work), method: :delete %><br><%= image_tag work.image.url(:medium) %>
+	      <%= f.radio_button :masterpiece, work.id %> masterpiece | <%= link_to "delete", profile_work_path(@user, work), method: :delete %><br><%= image_tag work.image.url(:medium) %>
 	  </div>
             <% end %>
 	</div>
