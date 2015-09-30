@@ -4,7 +4,8 @@
       <%= image_tag work.image.url(:large) %>
     </div>
     <div class="thumbnail-text">
-      <%= work.name %>
+      <em><%= work.name %></em><br>
+      <%= User.find(work.user_id).full_name %>
     </div>
   </div>
 </div>
