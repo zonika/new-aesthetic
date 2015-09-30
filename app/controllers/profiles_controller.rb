@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
 
   def update
     current_user.update(user_params)
-    redirect_to edit_profile_path
+    redirect_to profile_path
   end
 
   def search
@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:masterpiece,:id)
+    params.require(:user).permit(:masterpiece,:id,:artist_statement,:zip,:website)
   end
 
 end
