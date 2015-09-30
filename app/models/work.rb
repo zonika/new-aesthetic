@@ -4,7 +4,4 @@ class Work < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\image\/.*\Z/
   validates :name, presence:true
 
-  def self.random
-    all.sample
-  end
 end

@@ -1,1 +1,52 @@
-About Us
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+
+  </head>
+  <body>
+
+    <style>
+      #bg {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      }
+      #bg img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      min-width: 50%;
+      min-height: 50%;
+      }
+    </style>
+    <div id="bg">
+      <%= image_tag User.random_masterpiece %>
+    </div>
+
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+	<div class="cover-container">
+	  <div class="inner cover">
+	    <h1>NEW AESTHETIC</h1>
+  	    <p class="lead">the new arts network</p>
+	    <p>Pitchfork artisan Etsy, XOXO non tousled incididunt gentrify aliqua cillum slow-carb health goth fap YOLO mollit. Tumblr est in gluten-free flexitarian Portland. Leggings chia aliquip, veniam Bushwick ut butcher sustainable mixtape disrupt. Aute est Echo Park velit. Fixie aute selfies tote bag actually next level. Enim id nesciunt, proident Austin magna occupy normcore cupidatat gastropub banh mi hoodie flexitarian PBR&B. Labore gentrify meh, ad laborum sartorial chambray freegan synth try-hard.</p>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+
