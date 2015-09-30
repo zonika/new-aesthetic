@@ -60,9 +60,6 @@ ActiveRecord::Schema.define(version: 20150930214249) do
     t.string   "img_url"
     t.string   "medium"
     t.string   "type"
-    t.float    "height"
-    t.float    "width"
-    t.float    "length"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
