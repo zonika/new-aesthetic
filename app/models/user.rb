@@ -21,5 +21,8 @@ class User < ActiveRecord::Base
     User.where(artist: true).where.not(masterpiece: nil).sample
   end
 
+  def full_name
+    "#{first_name.capitalize} #{last_name.capitalize}"
+  end
 
 end

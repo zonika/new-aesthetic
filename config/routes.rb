@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/', to: 'home#index'
   get '/about', to: 'home#about', as: 'about'
   get '/search', to: 'profiles#search', as: 'search'
+  get '/discovery', to: 'feeds#discover', as: 'discover'
 end

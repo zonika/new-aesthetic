@@ -1,0 +1,7 @@
+<% @works.each do |artist| %>
+<% work = artist.masterpiece %>
+<div>
+<%= link_to artist.full_name, profile_path(artist) %>
+<%= render Work.find(work) %>
+</div>
+<% end %>
