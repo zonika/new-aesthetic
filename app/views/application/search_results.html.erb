@@ -1,6 +1,6 @@
 <% if @users.length > 0 %>
   <% @users.each do |user| %>
-  <p><%= (link_to "#{user.first_name} #{user.last_name}") %></p>
+  <p><%= (link_to "#{user.first_name} #{user.last_name}", profile_works_path(user)) %></p>
   <% end %>
 <% else %>
   <%= "No matches found." %>
