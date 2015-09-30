@@ -1,22 +1,19 @@
 <% if user_signed_in? %>
   <% if @user.works %>
-    Pick your masterpiece
-    <% if @user.masterpiece %>
+  Pick your masterpiece:
         <%= form_for @user, url: profile_path(@user) do |f| %>
+	<div class="row">
           <% @user.works.each do |work| %>
-            <%= f.radio_button :masterpiece, work.id %> <%= image_tag work.image.url(:medium) %> <%= link_to "X", profile_work_path(@user, work), method: :delete %> <br>
-          <% end %>
+	  <div class="col-md-4">
+	      <%= f.radio_button :masterpiece, work.id %>  <%= link_to "delete", profile_work_path(@user, work), method: :delete %><br><%= image_tag work.image.url(:medium) %> 
+	  </div>
+            <% end %>
+	</div>
+	<br>
         <%= f.submit "Save" %>
         <% end %>
-    <% else %>
-        <%= form_for @user, url: profile_path(@user) do |f| %>
-          <% @user.works.each do |work| %>
-            <%= f.radio_button :masterpiece, work.id, :checked => true %> <%= image_tag work.image.url(:medium) %> <%= link_to "X", profile_work_path(@user, work), method: :delete %> <br>
-          <% end %>
-        <%= f.submit "Save" %>
-        <% end %>
-    <% end %>
-  New Work:
+	<br>
+  Upload a new piece:
   <%= render '/works/upload' %>
   <% else %>
   You must be signed in to see this page
