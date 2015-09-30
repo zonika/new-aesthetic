@@ -1,7 +1,7 @@
 <% if @user.works.length < 3 %>
   <%= form_for [@user, Work.new], url: profile_works_path(@user.id), html: {multipart: true} do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name, value: 'Untitled' %><br>
     <%= f.label :image, 'Image' %>
     <%= f.file_field :image %>
     <%= f.submit "Upload Photo" %>
