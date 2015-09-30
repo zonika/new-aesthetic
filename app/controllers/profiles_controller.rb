@@ -1,10 +1,13 @@
 class ProfilesController < ApplicationController
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to profile_path(@user)
+    end
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
