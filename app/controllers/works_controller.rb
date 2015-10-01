@@ -18,6 +18,7 @@ class WorksController < ApplicationController
   end
 
   def update
+    binding.pry
     @work = Work.find(params[:id])
     @work.update(work_params)
     redirect_to profile_path(current_user)
@@ -32,7 +33,7 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:name, :image, :tag_list)
+    params.require(:work).permit(:name, :image, tag_list:[])
   end
 
   def all_tags
