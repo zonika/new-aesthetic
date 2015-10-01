@@ -7,7 +7,10 @@
       <em><%= work.name %></em><br>
       <%= User.find(work.user_id).full_name %><br>
       Tagged as:<br>
-      <%= work.tag_list %>
+      <%= work.tag_list %><br>
+      <% if User.find(work.user_id) == current_user %>
+        <%= link_to "Edit This Work", edit_profile_work_path(User.find(work.user_id),work) %>
+      <% end %>
     </div>
 
   </div>

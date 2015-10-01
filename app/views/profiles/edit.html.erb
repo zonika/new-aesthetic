@@ -4,7 +4,7 @@
 	<div class="row">
           <% @user.works.each do |work| %>
 	  <div class="col-md-4">
-	      <%= f.radio_button :masterpiece, work.id %> masterpiece | <%= link_to "Edit Work", edit_profile_work_path(@user, work) %><br><%= image_tag work.image.url(:medium) %>
+	      <%= f.radio_button :masterpiece, work.id %> masterpiece<br><%= image_tag work.image.url(:medium) %>
 	  </div>
             <% end %>
 	</div>

@@ -1,4 +1,4 @@
-<%= form_for [@user,@work], url: profile_works_path(@user.id) do |f| %>
+<%= form_for [@user,@work], url: profile_work_path(@user,@work) do |f| %>
 <%= image_tag @work.image.url(:large) %>
 <%= f.label :name %>
 <%= f.text_field :name %>

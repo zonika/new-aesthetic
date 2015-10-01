@@ -1,6 +1,6 @@
 <h2><%= @user.first_name + " " + @user.last_name %></h2>
 <% if @user == current_user %>
-<%= link_to "Edit Works", edit_profile_path %><br>
+<%= link_to "Edit Profile", edit_profile_path %><br>
 <% end %>
 <div class="row">
 <%= render @user.works %>
