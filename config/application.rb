@@ -14,6 +14,7 @@ require "sprockets/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Elasticsearch::Model.client = Elasticsearch::Client.new host: 'http://paas:9fb6bfd038582be6a32ec377ec476560@fili-us-east-1.searchly.com'
 
 module NewAesthetic
   class Application < Rails::Application
