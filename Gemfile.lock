@@ -91,6 +91,14 @@ GEM
     dotenv-rails (2.0.2)
       dotenv (= 2.0.2)
       railties (~> 4.0)
+    elasticsearch (1.0.13)
+      elasticsearch-api (= 1.0.13)
+      elasticsearch-transport (= 1.0.13)
+    elasticsearch-api (1.0.13)
+      multi_json
+    elasticsearch-transport (1.0.13)
+      faraday
+      multi_json
     erubis (2.7.0)
     eventmachine (1.0.8)
     execjs (2.6.0)
@@ -101,6 +109,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.5.0)
       i18n (~> 0.5)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.10)
     formatador (0.2.5)
     globalid (0.3.6)
@@ -120,6 +130,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hashie (3.4.2)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -143,6 +154,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.8.1)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     nenv (0.2.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -232,6 +244,10 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    searchkick (0.9.1)
+      activemodel
+      elasticsearch (>= 1)
+      hashie
     selenium-webdriver (2.47.1)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -304,6 +320,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  searchkick
   selenium-webdriver
   simplecov
   spring

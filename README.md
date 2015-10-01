@@ -1,40 +1,39 @@
-# New Aesthetic
+NEW AESTHETIC
 
-## Description
+*-- Description --*
+New Aesthetic is a platform dedicated to providing better exposure for emerging artists. Artists creating an account are able to manage their curated portfolios and selected masterpiece that will be available to view to all NA users. For our curators, we offer the ability to 'collect' works shown on the site in their own account.
 
-Add a short description of your app.
+*-- Team --*
+This app was built by Gerardo Veltri, Zoe Chodosh and Janey Larcombe as part of the Flatiron School Web Development Immersive course.
 
-## Screenshots
+*-- Features --*
+Key features include our randomized display of artists 'masterpieces', the ability to
 
-Add some spiffy screenshots of your app here.
+*-- Usage --*
+Sign in and let us know whether you're interested in uploading or simply viewing works - are you going to be an artist or a curator? Then navigate through our discovery pages to start building your collection.
 
-## Background
+*-- Development --*
+We welcome open source contributions so please feel free to download the code and add any features, whether that is simply tests or improvement on user features. For pull requests, we do ask that you are as comprehensive as possible in explaining your motives, thoughts, process and adaptations of the original code.
 
-Why did you want to make this app? What was your development process
-like?
-
-## Features
-
-Bullet point some of the key features of your app here.
-
-## Usage
-
-How do users use your app?
-
-## Development/Contribution
-
-Explain how people can contribute to your app. How should they write tests?
-Any things in particular you'd like to see in pull requests?
-
-## Future
-
-What features are you currently working on? Only mention things that you
-actually are implementing. No pie-in-the-sky-never-gonna-happen stuff.
-
-## Author
-
-Link to your blog, twitter, etc!
-
-## License
+*-- License --*
 
 New Aesthetic is MIT Licensed. See LICENSE for details.
+
+
+
+CODE
+
+As the search feature is using Elasticsearch first install elastic search via your terminal:
+---------------------------
+$ brew install elasticsearch
+---------------------------
+
+Next, run the elastic search server by running:
+---------------------------
+$ elasticsearch
+---------------------------
+
+And lastly, index your search using the following command:
+---------------------------
+$ rake searchkick:reindex CLASS=User
+---------------------------
