@@ -3,15 +3,23 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks 
+
 
   has_many :works
 
-  searchkick
+
 
   def index
     @users = User.all
+  end
+
+  def self.search(query)
+    @query = query.capitalize
+    if (User.find_by(first_name: "#{@query}")) || (User.find_by(last_name: "#{@query}"))
+      [(User.find_by(first_name: "#{@query}")) || (User.find_by(last_name: "#{@query}"))]
+    else
+      (User.where("first_name LIKE ?", "%#{@query}%")) ||  (User.where("last_name LIKE ?", "%#{@query}%"))
+    end
   end
 
   def self.random_user
