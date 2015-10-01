@@ -2,8 +2,8 @@
 <%= image_tag @work.image.url(:large) %>
 <%= f.label :name %>
 <%= f.text_field :name %>
-<%= f.label :tag_list %>
-<%= f.text_field :tag_list %>
+<%= f.label :tag_list, "Tags:" %>
+<%= f.collection_check_boxes :tag_list, ActsAsTaggableOn::Tag.all, :name, :name %>
 <%= f.submit %>
 <% end %>
 <%= link_to "Delete", profile_work_path(@user, @work), method: :delete %>
