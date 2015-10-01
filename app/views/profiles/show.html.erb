@@ -5,7 +5,7 @@
 <div class="row">
 <%= render @user.works %>
 </div><br>
-<% if @user.artist_statement %>
+<% if @user.artist_statement && @user.artist_statement != ""%>
 Artist Statement:
 <%= @user.artist_statement %><br>
 <% end %>
@@ -13,6 +13,6 @@ Artist Statement:
 Location:
 <%= @user.zip %><br>
 <% end %>
-<% if @user.website %>
+<% if @user.website && @user.website != ""%>
 <%= link_to "Website", "http://#{@user.website}", target: "_blank" %>
 <% end %>

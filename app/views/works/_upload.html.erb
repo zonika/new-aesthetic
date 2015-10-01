@@ -6,8 +6,11 @@
        <%= f.text_field :name, value: 'Untitled' %>
      </div>
      <div class="col-sm-3">
-
        <%= f.file_field :image %>
+     </div>
+     <div class="field">
+       <%= f.label :tag_list %>
+       <%= f.text_field :tag_list %>
      </div>
      <div class="col-sm-3">
        <%= f.submit "Upload Photo" %>

@@ -19,9 +19,14 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#creating tags for works
+gem 'acts-as-taggable-on', '~> 3.4'
+
+#uploading and storing images
 gem 'paperclip'
 gem 'aws-sdk', '~>1.6'
 
+#Seeding data
 gem 'faker'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

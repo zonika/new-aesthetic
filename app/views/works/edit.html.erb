@@ -1,0 +1,9 @@
+<%= form_for [@user,@work], url: profile_works_path(@user.id) do |f| %>
+<%= image_tag @work.image.url(:large) %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :tag_list %>
+<%= f.text_field :tag_list %>
+<%= f.submit %>
+<% end %>
+<%= link_to "Delete", profile_work_path(@user, @work), method: :delete %>

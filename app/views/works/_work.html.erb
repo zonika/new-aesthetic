@@ -5,7 +5,10 @@
     </div>
     <div class="thumbnail-text">
       <em><%= work.name %></em><br>
-      <%= User.find(work.user_id).full_name %>
+      <%= User.find(work.user_id).full_name %><br>
+      Tagged as:<br>
+      <%= work.tag_list %>
     </div>
+
   </div>
 </div>
