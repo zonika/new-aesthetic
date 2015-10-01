@@ -46,8 +46,8 @@
 								<a href="#" class="btn btn-md btn-default" id="sign_in">sign in</a>
 								<a href="#" class="btn btn-md btn-default" id="sign_up">sign up</a>
     							<% else %>
-								<p class="lead"> <%= link_to "User", profile_path(current_user) %> </p>
-								<%= link_to "signout", destroy_user_session_path, :method => :delete %>
+								<%= link_to current_user.first_name + " " + current_user.last_name, profile_path(current_user) %>
+									<br><%= link_to "signout", destroy_user_session_path, :method => :delete %>
 							<% end %>
 							<div id="sign_in_form" style="display:none;">
 								<br>
