@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :works
-  has_many :work_tags, through: :works
-  has_many :tags, through: :work_tags
 
   searchkick
 
