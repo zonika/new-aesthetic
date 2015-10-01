@@ -1,8 +1,8 @@
-<span class="searchbar">
-  <%= form_tag search_path, :method => 'get', :class => 'navbar-form navbar-left' do %>
+<div class="users-search" id="remote">
+  <%= form_tag search_path, :method => 'get', :class => 'search-bar-center' do %>
       <div class="form-group">
-        <%= text_field_tag(:query) %>
+        <span><%= text_field_tag :query, params[:query], :class => 'search rounded searchfield', :placeholder => "    Search for an artist..." %>
+        <%= submit_tag('',style: 'width:0;height:0;display:none;') %>
       </div>
-      <%= submit_tag "Search", class: 'btn btn-primary', id: 'search-btn' %>
   <% end %>
-</span>
+</div>

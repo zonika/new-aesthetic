@@ -115,11 +115,8 @@ a:hover {
 html,
 body {
 	height: 100%;
-	background-color: #333;
-}
-
-body {
-	color: #fff;
+	background-color: #222;
+	color: #fff
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -199,11 +196,12 @@ body {
 
 .cover {
 	padding: 17%;
-	background-color:rgba(0,0,0,0.2);
+	/* 	background-color:rgba(0,0,0,0.2); */
 	/*border: 3px solid #A3C68C;*/
 	border-radius: 50px;
 	position:relative;
 	z-index: 1;
+	text-shadow: 0 6px 15px rgba(0,0,0,0.8);
 }
 .cover .btn-lg {
 	padding: 10px 20px;
@@ -255,6 +253,7 @@ body {
 	}
 }
 
+
 #search-btn {
 	border-width: 3px;
 	border-color: #555555;
@@ -280,11 +279,10 @@ body {
 	padding-bottom: 15px;
 }
 .navbar-simple .navbar-inner {
-	background: #fff;
 	filter: none !important;
-	box-shadow: 0 2px 15px rgba(0,0,0,0.25);
-	-moz-box-shadow: 0 2px 15px rgba(0,0,0,0.25);
-	-webkit-box-shadow: 0 2px 15px rgba(0,0,0,0.25);
+	box-shadow: 0 0 6px 5px rgba(255,255,255,0.25);
+	-moz-box-shadow: 0 0 6px 5px rgba(255,255,255,0.25);
+	-webkit-box-shadow: 0 0 6px 5px rgba(255,255,255,0.25);
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 .navbar-simple .navbar-inner .nav {
@@ -295,19 +293,57 @@ body {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-	color: #777;
 	font-size: 13px;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	font-weight: 600;
+	font-weight: 200;
 }
-.navbar-simple .navbar-inner .nav li a:hover {
+.navbar-simple li a:hover {
 	background: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
-	color: #00FFFF;
+	color: rgba(0,255,255,1);
+	text-shadow: 0 2px 15px rgba(255,255,255,0.8);
 }
-.navbar-simple .navbar-inner .nav li.active a {
-	color: #00FFFF;
+
+.navbar-simple a.navbar-brand:hover {
+	text-shadow: 0 2px 15px rgba(255,255,255,0.8);
+	color: rgba(0,255,255,1);
+	
+}
+
+
+
+#query {
+	width: 400px;
+	height: 35px;
+	border-width: 0px;
+	background: white;
+	font-size: 14px;
+	font-size: 1.4rem;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	padding: 0px;
+	color: #555555;
+}
+
+.form-group {
+	margin: 0 auto;
+	width: 400px;
+	border: 0px;
+	margin-bottom: 10px;
+}
+
+.users-search {
+	padding:6px 15px 6px 30px;
+	margin:3px;
+	border: 0px;
+	box-shadow: none;
+	padding: 6px;
+}
+
+.rounded {
+	border-radius:15px;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
 }
