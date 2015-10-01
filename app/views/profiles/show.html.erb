@@ -1,18 +1,14 @@
-<h2><%= @user.first_name + " " + @user.last_name %></h2>
-<% if @user == current_user %>
+<h2><%= @user.first_name + " " + @user.last_name %></h2><% if @user.website && @user.website != "" %><%= link_to "Website", "http://#{@user.website}", target: "_blank" %><% end %> | <%= link_to "Contact", "mailto:#{@user.email}" %>
+
+	<% if @user == current_user %>
+		
+		<% if @user.artist_statement && @user.artist_statement != ""%>
+			<div style="text-align:right;width:60%;margin:0 0 0 30px"><h4>Artist Statement</h4>
+		<%= @user.artist_statement %><br></div>
+	<% end %>
+	<br>
 <%= link_to "Edit Profile", edit_profile_path %><br>
 <% end %>
 <div class="row">
-<%= render @user.works %>
+	<%= render @user.works %>
 </div><br>
-<% if @user.artist_statement && @user.artist_statement != ""%>
-Artist Statement:
-<%= @user.artist_statement %><br>
-<% end %>
-<% if @user.zip %>
-Location:
-<%= @user.zip %><br>
-<% end %>
-<% if @user.website && @user.website != ""%>
-<%= link_to "Website", "http://#{@user.website}", target: "_blank" %>
-<% end %>
