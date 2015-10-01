@@ -1,5 +1,18 @@
-<h2><%= @user.first_name + " " + @user.last_name %></h2><br>
+<h2><%= @user.first_name + " " + @user.last_name %></h2>
+<% if @user == current_user %>
+<%= link_to "Edit Works", edit_profile_path %><br>
+<% end %>
 <div class="row">
 <%= render @user.works %>
 </div><br>
-<%= link_to "Edit Works", edit_profile_path %>
+<% if @user.artist_statement %>
+Artist Statement:
+<%= @user.artist_statement %><br>
+<% end %>
+<% if @user.zip %>
+Location:
+<%= @user.zip %><br>
+<% end %>
+<% if @user.website %>
+<%= link_to "Website", "http://#{@user.website}", target: "_blank" %>
+<% end %>

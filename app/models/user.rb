@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
     @users = User.all
   end
 
+  def self.random_user
+    User.where(artist: true).where.not(masterpiece: nil).sample
+  end
+
+  def full_name
+    "#{first_name.capitalize} #{last_name.capitalize}"
+  end
+
 end

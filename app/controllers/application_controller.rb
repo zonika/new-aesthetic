@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
   def after_sign_up_path_for(resource)
     #eventually replace with feed
     profile_path(resource)
-  end  
-  
+  end
+
+  def after_update_path_for(resource)
+     profile_path(resource)
+  end
+
 end

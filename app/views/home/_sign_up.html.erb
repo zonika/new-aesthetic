@@ -1,0 +1,11 @@
+<script>
+$(document).ready(function() {
+	  $('#sign_in').click(function() {
+		  if ($('#sign_up_form').css('display')!=="block") $('#sign_in_form').fadeToggle();
+	  });
+	  $('#sign_up').click(function() {
+		  if ($('#sign_in_form').css('display')!=="block") $('#sign_up_form').fadeToggle();
+	  });
+	  
+  })
+</script>
