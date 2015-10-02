@@ -43,13 +43,7 @@ class WorksController < ApplicationController
   end
 
   private
-
   def work_params
     params.require(:work).permit(:name, :image, :type, tag_list:[])
   end
-
-  def all_tags
-    ActsAsTaggableOn::Tag.all
-  end
-
 end

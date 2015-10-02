@@ -15,10 +15,10 @@ class ProfilesController < ApplicationController
     redirect_to profile_path
   end
 
-  def search
-    @users = User.search(params[:query])
-    render 'search_results'
-  end
+  # def search
+  #   @users = User.search(params[:query])
+  #   render 'search_results'
+  # end
 
   private
   def user_params

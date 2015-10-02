@@ -28,14 +28,15 @@ gem 'aws-sdk', '~>1.6'
 
 #Seeding data
 gem 'faker'
+gem 'pg_search'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem 'searchkick'
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
+# gem 'searchkick'
+# gem 'elasticsearch-model'
+# gem 'elasticsearch-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -54,6 +55,8 @@ group :development do
   gem 'spring'
 end
 
+gem 'pg'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
@@ -63,7 +66,6 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'simplecov'
   gem 'database_cleaner'
-  gem 'sqlite3'
   gem 'pry'
   gem 'guard-rspec', require: false
   gem 'thin'
@@ -71,7 +73,6 @@ group :test, :development do
 end
 
 group :production do
-  gem 'pg'
   gem 'google-analytics-rails'
   gem 'rails_12factor'
 end
