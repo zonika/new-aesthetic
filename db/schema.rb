@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001144310) do
+ActiveRecord::Schema.define(version: 20151002160016) do
+
+  create_table "curator_works", force: :cascade do |t|
+    t.integer "curator_id"
+    t.integer "piece_id"
+  end
+
+  add_index "curator_works", ["curator_id"], name: "index_curator_works_on_curator_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
