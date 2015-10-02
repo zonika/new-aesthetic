@@ -4,6 +4,8 @@
 <%= f.text_field :name %>
 <%= f.label :tag_list, "Tags:" %>
 <%= f.collection_check_boxes :tag_list, ActsAsTaggableOn::Tag.all, :name, :name %>
+<%= f.label :type, "Add Tag:" %>
+<%= f.text_field :type %>
 <%= f.submit %>
 <% end %>
 <%= link_to "Delete", profile_work_path(@user, @work), method: :delete %>

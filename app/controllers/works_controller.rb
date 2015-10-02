@@ -3,7 +3,14 @@ class WorksController < ApplicationController
   def create
     @user = current_user
     @tags = all_tags
-    @work = @user.works.create(work_params)
+    if work_params[:type] != ""
+      wp = work_params
+      wp[:tag_list] << work_params[:type]
+      wp.delete(:type)
+      @work = @user.works.create(wp)
+    else
+      @work = @user.works.create(work_params)
+    end
     redirect_to profile_path(@user)
   end
 
@@ -13,14 +20,19 @@ class WorksController < ApplicationController
 
   def edit
     @user = current_user
-    @tags = all_tags
     @work = Work.find(params[:id])
   end
 
   def update
-    binding.pry
     @work = Work.find(params[:id])
-    @work.update(work_params)
+    if work_params[:type] != ""
+      wp = work_params
+      wp[:tag_list] << work_params[:type]
+      wp.delete(:type)
+      @work.update(wp)
+    else
+      @work.update(work_params)
+    end
     redirect_to profile_path(current_user)
   end
 
@@ -33,7 +45,7 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:name, :image, tag_list:[])
+    params.require(:work).permit(:name, :image, :type, tag_list:[])
   end
 
   def all_tags

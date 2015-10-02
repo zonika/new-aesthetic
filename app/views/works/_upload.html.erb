@@ -11,6 +11,8 @@
      <div class="field">
        <%= f.label :tag_list, "Tags:" %>
        <%= f.collection_check_boxes :tag_list, ActsAsTaggableOn::Tag.all, :name, :name %>
+       <%= f.label :type, "Add Tag:" %>
+       <%= f.text_field :type %>
      </div>
      <div class="col-sm-3">
        <%= f.submit "Upload Photo" %>

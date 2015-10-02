@@ -34,6 +34,8 @@ gem 'faker'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'searchkick'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
