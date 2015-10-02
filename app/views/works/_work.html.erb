@@ -8,8 +8,21 @@
       <%= User.find(work.user_id).full_name %><br>
       Tagged as:<br>
       <%= work.tag_list %><br>
+      <% if !current_user.pieces.include?(work) %>
+	      <%= form_tag(add_piece_path, method: :post ) do %>
+		      <%= hidden_field_tag(:curator, current_user.id) %>
+		      <%= hidden_field_tag(:piece, work.id) %>
+		      <%= submit_tag("add to your collection") %>
+	      <% end %>
+      <% else %>
+	      <%= form_tag(remove_piece_path, method: :delete ) do %>
+		      <%= hidden_field_tag(:curator, current_user.id) %>
+		      <%= hidden_field_tag(:piece, work.id) %>
+		      <%= submit_tag("remove from your collection") %>
+	      <% end %>
+      <% end %>
       <% if User.find(work.user_id) == current_user %>
-        <%= link_to "Edit This Work", edit_profile_work_path(User.find(work.user_id),work) %>
+	      <br>
       <% end %>
     </div>
 
