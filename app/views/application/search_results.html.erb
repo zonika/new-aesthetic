@@ -1,7 +1,13 @@
-<% if @users.length > 0 %>
-  <% @users.each do |user| %>
-  <p><%= (link_to "#{user.first_name} #{user.last_name}", profile_works_path(user)) %></p>
+<% if @artists.length > 0 %>
+  <%= render 'searchbar' %>
+  <% @artists.each do |artist| %>
+  <p><%= (link_to "#{artist.full_name}", profile_path(artist)) %></p>
   <% end %>
+<%# elsif @works.length > 0 %>
+  <%# @works.each do |work| %>
+    <%# render Work.find(work) %>
+    <% #end %>
 <% else %>
-  <%= "No matches found." %>
+  <%= render 'searchbar' %>
+  <p style="text-align: center;">No matches found. Please try again or visit our <%= link_to "discovery", discover_path %> page.</p>
 <% end %>

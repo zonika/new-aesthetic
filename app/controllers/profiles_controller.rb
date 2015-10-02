@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    @users = User.search(params[:query])
+    @artists = User.search(params[:query])
     render 'search_results'
   end
 
