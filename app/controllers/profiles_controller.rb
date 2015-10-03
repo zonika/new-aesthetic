@@ -15,10 +15,10 @@ class ProfilesController < ApplicationController
     redirect_to profile_path
   end
 
-  # def search
-  #   @users = User.search(params[:query])
-  #   render 'search_results'
-  # end
+  def search
+    @results = PgSearch.multisearch(params[:query])
+    render 'search_results'
+  end
 
   def collection
   end
@@ -41,7 +41,7 @@ class ProfilesController < ApplicationController
       render 'collection'
     end
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:masterpiece,:id,:artist_statement,:zip,:website)

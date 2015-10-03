@@ -2,7 +2,6 @@ class WorksController < ApplicationController
 
   def create
     @user = current_user
-    @tags = all_tags
     if work_params[:type] != ""
       wp = work_params
       wp[:tag_list] << work_params[:type]
@@ -15,7 +14,7 @@ class WorksController < ApplicationController
   end
 
   def index
-    @user = current_user
+    redirect_to profile_path(current_user)
   end
 
   def edit

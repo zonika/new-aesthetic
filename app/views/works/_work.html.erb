@@ -22,7 +22,7 @@
 	      <% end %>
       <% end %>
       <% if User.find(work.user_id) == current_user %>
-	      <br>
+	      <%= link_to "Edit This Work", edit_profile_work_path(User.find(work.user_id),work) %><br>
       <% end %>
     </div>
 
