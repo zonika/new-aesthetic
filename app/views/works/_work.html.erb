@@ -6,8 +6,10 @@
     <div class="thumbnail-text">
       <em><%= work.name %></em><br>
       <%= User.find(work.user_id).full_name %><br>
-      Tagged as:<br>
-      <%= work.tag_list %><br>
+      <% if work.tag_list != [] %>
+        Tagged as:<br>
+        <%= work.tag_list %><br>
+      <% end %>
       <% if !current_user.pieces.include?(work) %>
 	      <%= form_tag(add_piece_path, method: :post ) do %>
 		      <%= hidden_field_tag(:curator, current_user.id) %>
