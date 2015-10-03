@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions", registrations: 'users/registrations' }
   resources :profiles, only: [:show, :edit, :update] do
     resources :works, only: [:index, :create, :edit, :update, :destroy]
+    member do
+      get :following, :followers
+    end
   end
+
+  resources :relationships,       only: [:create, :destroy]
 
   get '/', to: 'home#index'
   get '/about', to: 'home#about', as: 'about'
@@ -12,5 +17,4 @@ Rails.application.routes.draw do
 
   post '/add_piece', to: 'profiles#add_piece', as: 'add_piece'
   delete '/remove_piece', to: 'profiles#remove_piece', as: 'remove_piece'
-  
 end

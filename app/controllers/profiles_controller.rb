@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
+                                      :following, :followers]
+
   def edit
     @user = User.find(params[:id])
     if @user != current_user
@@ -15,10 +18,19 @@ class ProfilesController < ApplicationController
     redirect_to profile_path
   end
 
-  # def search
-  #   @users = User.search(params[:query])
-  #   render 'search_results'
-  # end
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
 
   def collection
   end
@@ -41,7 +53,7 @@ class ProfilesController < ApplicationController
       render 'collection'
     end
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:masterpiece,:id,:artist_statement,:zip,:website)

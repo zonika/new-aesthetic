@@ -10,19 +10,35 @@ class User < ActiveRecord::Base
 
   has_many :curator_works, :foreign_key => "curator_id"
   has_many :pieces, through: :curator_works, :class_name => "Work"
-  
+
+  has_many :active_relationships, class_name:  "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+  has_many :passive_relationships, class_name:  "Relationship",
+                                 foreign_key: "followed_id",
+                                 dependent:   :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
+
+
   def index
     @users = User.all
   end
 
-  # def self.search(query)
-  #   @query = query.capitalize
-  #   if (User.find_by(first_name: "#{@query}")) || (User.find_by(last_name: "#{@query}"))
-  #     [(User.find_by(first_name: "#{@query}")) || (User.find_by(last_name: "#{@query}"))]
-  #   else
-  #     (User.where("first_name LIKE ?", "%#{@query}%")) ||  (User.where("last_name LIKE ?", "%#{@query}%"))
-  #   end
-  # end
+  # Follows a user.
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  # Unfollows a user.
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # Returns true if the current user is following the other user.
+  def following?(other_user)
+    following.include?(other_user)
+  end
 
   def self.random_user
     User.where(artist: true).where.not(masterpiece: nil).sample
