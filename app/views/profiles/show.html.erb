@@ -1,5 +1,7 @@
 <h2><%= @user.first_name + " " + @user.last_name %></h2><% if @user.website && @user.website != "" %><%= link_to "Website", "http://#{@user.website}", target: "_blank" %> | <% end %><%= link_to "Contact", "mailto:#{@user.email}" %>
 
+	<%= link_to "Message", message_user_path(@user)  %>
+
 	<% if @user == current_user %>
 		<% if @user.artist_statement && @user.artist_statement != ""%>
 			<br><br>

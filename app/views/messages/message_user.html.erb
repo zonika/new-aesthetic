@@ -1,10 +1,9 @@
-<h2>New Conversation</h2>
-
-<div class="form-group">
-  <%= hidden_field_tag 'recipient', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
-</div>
+<h2></h2>
 
 <%= form_tag messages_path, method: :post do %>
+
+  <%= hidden_field_tag 'recipients', params[:user_id] %>
+
   <div class="form-group">
     <%= label_tag 'message[subject]', 'Subject' %>
     <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
