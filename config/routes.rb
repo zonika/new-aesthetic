@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   get '/discovery', to: 'feeds#discover', as: 'discover'
   get '/feed', to: 'feeds#followingfeed', as: 'feed'
   get '/collection', to: 'profiles#collection', as: 'collection'
-
   post '/add_piece', to: 'profiles#add_piece', as: 'add_piece'
   delete '/remove_piece', to: 'profiles#remove_piece', as: 'remove_piece'
 end
