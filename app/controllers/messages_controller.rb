@@ -6,7 +6,6 @@ class MessagesController < ApplicationController
   end
 
   def message_user
-
   end
 
   def create
