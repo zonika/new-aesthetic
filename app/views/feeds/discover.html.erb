@@ -1,9 +1,23 @@
 <%= render 'searchbar' %>
+<div class="btn-group btn-toggle centered" style="display:inline;">
+  <%= link_to 'Random Works', random_path, remote:true, class: 'btn btn-primary active', method: :post %>
+  <%= link_to 'Most Collected', most_collected_path, remote:true, class: 'btn btn-default', method: :post %>
+</div>
+<br><br>
+<div class="feed">
+  <%= render 'works' %>
+</div>
 
-<% @works.each do |artist| %>
-<% work = artist.masterpiece %>
+<script>
 
-<%= link_to profile_path(artist) do %>
-<%= render Work.find(work) %>
-<% end %>
-<% end %>
+$('.btn-toggle').click(function() {
+    $(this).find('.btn').toggleClass('active');
+
+    if ($(this).find('.btn-primary').size()>0) {
+    	$(this).find('.btn').toggleClass('btn-primary');
+    }
+    $(this).find('.btn').toggleClass('btn-default');
+
+});
+
+</script>
