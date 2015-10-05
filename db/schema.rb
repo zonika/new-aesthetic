@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002160016) do
+ActiveRecord::Schema.define(version: 20151003215018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20151002160016) do
   end
 
   add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
+
+  create_table "riddles", force: :cascade do |t|
+    t.string   "question"
+    t.string   "answer"
+    t.string   "keyword"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -78,6 +86,13 @@ ActiveRecord::Schema.define(version: 20151002160016) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "users_riddles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "riddle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "works", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -87,15 +102,15 @@ ActiveRecord::Schema.define(version: 20151002160016) do
     t.float    "height"
     t.float    "width"
     t.float    "length"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "times_collected",    default: 0
   end
 
   add_index "works", ["user_id"], name: "index_works_on_user_id", using: :btree
 
-  add_foreign_key "works", "users"
 end

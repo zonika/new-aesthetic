@@ -14,7 +14,7 @@ class WorksController < ApplicationController
   end
 
   def index
-    @user = current_user
+    redirect_to profile_path(current_user)
   end
 
   def edit
