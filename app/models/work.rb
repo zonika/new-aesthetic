@@ -14,4 +14,5 @@ class Work < ActiveRecord::Base
   multisearchable :against => [:name, :tag_list]
 
 
+
 end

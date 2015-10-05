@@ -22,8 +22,6 @@
  */
 
 @import "bootstrap";
-/* Some Style from the Bootstrap Default Theme */
-
 
 .theme-dropdown .dropdown-menu {
 	position: static;
@@ -313,10 +311,8 @@ body {
 .navbar-simple a.navbar-brand:hover {
 	text-shadow: 0 2px 15px rgba(255,255,255,0.8);
 	color: rgba(0,255,255,1);
-	
+
 }
-
-
 
 #query {
 	width: 400px;
@@ -350,6 +346,7 @@ body {
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
 }
+
 
 textarea {
 	color: #000;
@@ -422,4 +419,12 @@ textarea {
 	-moz-opacity: 0.9;
 	opacity: 0.9;
 	text-shadow: none;
+}	     
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #cccccc;
+  border-radius: 1px;
 }
