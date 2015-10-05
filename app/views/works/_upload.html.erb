@@ -1,24 +1,27 @@
 <% if @user.works.length < 3 %>
-   <div class="row">
-     <%= form_for [@user, Work.new], url: profile_works_path(@user.id), html: {multipart: true} do |f| %>
-     <div class="col-sm-3">
-       <%= f.label :name %>
-       <%= f.text_field :name, value: 'Untitled' %>
-     </div>
-     <div class="col-sm-3">
-       <%= f.file_field :image %>
-     </div>
-     <div class="field">
-       <%= f.label :tag_list, "Tags:" %>
-       <%= f.collection_check_boxes :tag_list, ActsAsTaggableOn::Tag.all, :name, :name %>
-       <%= f.label :type, "Add Tag:" %>
-       <%= f.text_field :type %>
-     </div>
-     <div class="col-sm-3">
-       <%= f.submit "Upload Photo" %>
-       <% end %>
-     </div>
-   </div>
+	<div class="form-horizontal">
+		<%= form_for [@user, Work.new], url: profile_works_path(@user.id), html: {multipart: true} do |f| %>
+			<div class="form-group">
+				<%= f.label :name, class: "control-label" %>
+				<%= f.text_field :name, value: 'Untitled', class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.file_field :image %>
+			</div>
+			<div class="form-group">
+				<%= f.label :tag_list, "Tags:", class: "control-label" %>
+				<%= f.collection_check_boxes :tag_list, ActsAsTaggableOn::Tag.all, :name, :name, class: "form-control" %>
+			</div>
+			<div class="form-group">
+
+				<%= f.label :type, "Add Tag:", class: "control-label" %>
+				<%= f.text_field :type, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.submit "Upload Photo", class: "btn btn" %>
+			</div>
+	<% end %>
+	</div>
 <% else %>
-  You can only upload 3 images!
+	You can only upload 3 images!
 <% end %>
