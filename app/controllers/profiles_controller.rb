@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+
   def edit
     @user = User.find(params[:id])
     if @user != current_user
@@ -14,11 +15,6 @@ class ProfilesController < ApplicationController
     current_user.update(user_params)
     redirect_to profile_path
   end
-
-  # def search
-  #   @users = User.search(params[:query])
-  #   render 'search_results'
-  # end
 
   def collection
   end
@@ -41,7 +37,7 @@ class ProfilesController < ApplicationController
       render 'collection'
     end
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:masterpiece,:id,:artist_statement,:zip,:website)

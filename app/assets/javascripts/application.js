@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require chosen-jquery
+//= require jquery.turbolinks
+//= require messages
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .

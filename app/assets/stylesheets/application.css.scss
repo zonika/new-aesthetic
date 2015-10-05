@@ -22,6 +22,8 @@
  */
 
 @import "bootstrap";
+@import 'bootstrap/theme';
+@import "chosen";
 /* Some Style from the Bootstrap Default Theme */
 
 
@@ -314,7 +316,7 @@ body {
 .navbar-simple a.navbar-brand:hover {
 	text-shadow: 0 2px 15px rgba(255,255,255,0.8);
 	color: rgba(0,255,255,1);
-	
+
 }
 
 
@@ -357,3 +359,9 @@ textarea {
 	font-size:10px;
 }
 
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
