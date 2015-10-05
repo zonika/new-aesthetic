@@ -1,0 +1,25 @@
+<%= form_for @user, url: profile_path(@user), class: 'form-horizontal' do |f| %>
+	<div class="row">
+		<% @user.works.each do |work| %>
+			<div class="col-md-4">
+				<%= f.radio_button :masterpiece, work.id %> masterpiece<br><%= image_tag work.image.url(:medium) %>
+			</div>
+		<% end %>
+	</div>
+	<br>
+	<div class="form-group">
+		<%= f.label :artist_statement, class: 'control-label' %>
+		<%= f.text_area :artist_statement, class: 'form-control', style: 'height:200px;' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :zip, class: 'control-label' %>
+		<%= f.text_field :zip, class: 'form-control' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :website, class: 'control-label' %>
+		<%= f.text_field :website, class: 'form-control' %>
+	</div>
+	<div class="form-group">
+		<%= f.submit "Save", class: 'btn btn-default' %>
+	</div>
+<% end %>
