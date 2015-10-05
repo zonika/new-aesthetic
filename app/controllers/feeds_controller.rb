@@ -3,8 +3,7 @@ class FeedsController < ApplicationController
     @works = User.where(artist: true).where.not(masterpiece: nil).sample(6)
   end
   def random
-    @works = User.where(artist: true).where.not(masterpiece: nil).sample(6)
-    render 'feeds'
+    render 'discover'
   end
   def most_collected
     w =  Work.order(times_collected: :desc)[0...6]
