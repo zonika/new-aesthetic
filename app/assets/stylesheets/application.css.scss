@@ -82,7 +82,7 @@ div.thumbnail-text {
 	z-index:1;
 	color: #000000;
 	a {
-	  color:rgba(255,255,255,0.8);
+		color:rgba(255,255,255,0.8);
 	}
 }
 
@@ -348,26 +348,26 @@ body {
 }
 
 .stats {
-  overflow: auto;
-  margin-top: 0;
-  padding: 0;
-  a {
-    float: left;
-    padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: blue;
-    }
-  }
-  strong {
-    display: block;
-  }
+	overflow: auto;
+	margin-top: 0;
+	padding: 0;
+	a {
+		float: left;
+		padding: 0 10px;
+		border-left: 1px solid $gray-lighter;
+		color: gray;
+		&:first-child {
+			padding-left: 0;
+			border: 0;
+		}
+		&:hover {
+			text-decoration: none;
+			color: blue;
+		}
+	}
+	strong {
+		display: block;
+	}
 }
 
 textarea {
@@ -445,11 +445,11 @@ textarea {
 }
 
 .navbar-toggle .icon-bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: #cccccc;
-  border-radius: 1px;
+	display: block;
+	width: 22px;
+	height: 2px;
+	background-color: #cccccc;
+	border-radius: 1px;
 }
 
 
@@ -458,11 +458,11 @@ textarea {
  */
 
 .btn {
-	padding: 14px 24px;
+	padding: 5px 5px;
 	border: 0 none;
-	font-weight: 700;
-	letter-spacing: 1px;
-	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: 2px;
+	border-radius: 3px;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -476,9 +476,28 @@ textarea {
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
 	background: #33a6cc;
+
 }
 
 .btn-primary:active, .btn-primary.active {
-	background: #007299;
+	background: #444444;
 	box-shadow: none;
+}
+
+.btn-default:hover {
+	padding: 3.5px;
+}
+
+.btn-default {
+
+}
+
+.btn-sm {
+	background: #333333;
+	font-weight: 400;
+	color: #FFFFFF;
+}
+
+.btn:hover {
+	color: rgb(0,255,255);
 }

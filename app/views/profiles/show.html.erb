@@ -1,20 +1,18 @@
 <h2><%= @user.first_name + " " + @user.last_name %></h2><% if @user.website && @user.website != "" %><%= link_to "Website", "http://#{@user.website}", target: "_blank" %> | <% end %><%= link_to "Contact", "mailto:#{@user.email}" %> | <%= @user.followers.count.to_s + " followers" %>
+<br>
+<%= render 'follow_form' %>
 
-	<% if @user != current_user %>
-  	 <%= render 'follow_form'%>
-	<% end %>
+<% if @user.artist_statement && @user.artist_statement != ""%>
+	<br><br>
+	<div style="width:60%;margin:0 0 0 5%">
+		<%= @user.artist_statement %><br></div>
+<% end %>
+<br>
 
-	<% if @user.artist_statement && @user.artist_statement != ""%>
-			<br><br>
-			<div style="width:60%;margin:0 0 0 5%">
-			<%= @user.artist_statement %><br></div>
-	<% end %>
-	<br>
-
-	<% if @user == current_user %>
+<% if @user == current_user %>
 	<%= link_to "Edit Profile", edit_profile_path %><br>
-	<% end %>
+<% end %>
 
-	<div class="row">
-		<%= render @user.works %>
-	</div><br>
+<div class="row">
+	<%= render @user.works %>
+</div><br>

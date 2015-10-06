@@ -7,13 +7,13 @@
 	      <%= form_tag(add_piece_path, method: :post ) do %>
 		      <%= hidden_field_tag(:curator, current_user.id) %>
 		      <%= hidden_field_tag(:piece, work.id) %>
-		      <%= submit_tag("add to your collection") %>
+		      <%= submit_tag "add to your collection", class:"btn btn-sm" %>
 	      <% end %>
       <% else %>
 	      <%= form_tag(remove_piece_path, method: :delete ) do %>
 		      <%= hidden_field_tag(:curator, current_user.id) %>
 		      <%= hidden_field_tag(:piece, work.id) %>
-		      <%= submit_tag("remove from your collection") %>
+		      <%= submit_tag("remove from your collection", class:"btn btn-sm") %>
 	      <% end %>
       <% end %>
       <% if User.find(work.user_id) == current_user %>
