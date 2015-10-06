@@ -347,11 +347,34 @@ body {
 	-webkit-border-radius:15px;
 }
 
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
 
 textarea {
 	color: #000;
 	font-size:10px;
 }
+
 
 .modal-dialog {}
 .thumbnail {margin-bottom:6px;}
@@ -419,7 +442,7 @@ textarea {
 	-moz-opacity: 0.9;
 	opacity: 0.9;
 	text-shadow: none;
-}	     
+}
 
 .navbar-toggle .icon-bar {
   display: block;

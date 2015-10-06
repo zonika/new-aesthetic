@@ -1,0 +1,16 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <!-- <a href="<%= following_profile_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.following.count %>
+    </strong>
+    following -->
+    <!-- Do we want to show following? I don't feel like its necessary... its about the artists -->
+  </a>
+  <a href="<%= followers_profile_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    followers
+  </a>
+</div>
