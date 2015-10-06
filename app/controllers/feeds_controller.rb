@@ -4,6 +4,7 @@ class FeedsController < ApplicationController
     @works = w.collect do |user|
       Work.find(user.masterpiece)
     end
+    render :layout => false
   end
 
   def followingfeed

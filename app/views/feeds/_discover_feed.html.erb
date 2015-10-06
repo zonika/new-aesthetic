@@ -1,0 +1,18 @@
+<% @works.each do |work| %>
+	<div class="section" style="background-image: url(<%= work.image.url(:large) %>);background-size:cover;background-position:center;">
+		<div class="discover_text"><%= work.name %> by <a href='<%= profile_path(User.find(work.user_id)) %>'><%= User.find(work.user_id).full_name %></a></div>
+	</div>
+<% end %>
+<script>
+$(document).ready(function() {
+	var s = [];
+	$('.discover_text').each(function() { s.push($(this).text()) });
+	$('#fullpage').fullpage({
+		navigation: true,
+		navigationPosition: 'right',
+		navigationTooltips: s,
+		showActiveTooltip: true
+
+	});
+});
+</script>

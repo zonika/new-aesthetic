@@ -463,6 +463,8 @@ textarea {
 	font-weight: 300;
 	letter-spacing: 2px;
 	border-radius: 3px;
+	position: absolute;
+	z-index:1;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -500,4 +502,28 @@ textarea {
 
 .btn:hover {
 	color: rgb(0,255,255);
+}
+
+/* discover page */
+
+.discover_text {
+	position:absolute;
+	bottom:10%;
+	left:5%;
+	z-index:1;
+	font-size:18px;
+	font-weight:400;
+	letter-spacing: 2px;
+	background-color: white;
+	padding: 5px 10px;
+	border-radius: 3px;
+	color: black;
+	a {
+		color: black;
+	}
+}
+
+div#fp-nav ul li a span, .fp-slidesNav ul li a span {
+	background: #FFF;
+	box-shadow: 2px 5px 5px #000000;
 }
