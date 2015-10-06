@@ -2,21 +2,21 @@
 
   <%= link_to conversation.subject, conversation_path(conversation) %>
 
-  <div class="btn-group-vertical pull-right">
-  <% if conversation.is_trashed?(current_user) %>
-    <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
-  <% else %>
-    <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-danger', method: :delete,
-                data: {confirm: 'Are you sure?'} %>
-  <% end %>
-  </div>
-
   <%= form_tag reply_conversation_path(conversation), method: :post do %>
-  <div class="form-group">
+  <div class="form-group message-body">
     <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
   </div>
   <%= submit_tag "Send Message", class: 'btn btn-primary' %>
   <% end %>
+
+  <div class="btn-group-vertical">
+  <% if conversation.is_trashed?(current_user) %>
+    <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
+  <% else %>
+    <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-trash', method: :delete,
+                data: {confirm: 'Are you sure?'} %>
+  <% end %>
+  </div>
 
   <p><%= render 'conversations/participants', conversation: conversation %></p>
 

@@ -259,6 +259,12 @@ body {
 	}
 }
 
+@media (min-width: 360px) {
+	textarea {
+		width: 300px;
+	}
+}
+
 
 #search-btn {
 	border-width: 3px;
@@ -319,8 +325,6 @@ body {
 
 }
 
-
-
 #query {
 	width: 400px;
 	height: 35px;
@@ -357,6 +361,8 @@ body {
 textarea {
 	color: #000;
 	font-size:10px;
+	margin-bottom: 15px;
+	margin-top: 15px;
 }
 
 .messages {
@@ -373,3 +379,19 @@ textarea {
 	padding: 0px;
 	color: #555555;
 }
+
+.list-group-item {
+	background-color: #222;
+}
+
+a.btn-trash {
+	background-color: #999966;
+}
+
+.btn-group-vertical {
+	margin-bottom: 10px;
+}
+
+// .panel-body .messages .media .media-body {
+// 	background-color: #C6C6AA;
+// }
