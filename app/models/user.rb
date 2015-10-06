@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :works
 
   include PgSearch
+  multisearchable against: [:first_name,:last_name]
 
   has_many :curator_works, :foreign_key => "curator_id"
   has_many :pieces, through: :curator_works, :class_name => "Work"
@@ -19,7 +20,6 @@ class User < ActiveRecord::Base
                                  dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-
 
   def index
     @users = User.all

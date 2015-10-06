@@ -9,5 +9,7 @@ class Work < ActiveRecord::Base
   validates :name, presence:true
   acts_as_taggable
 
+  include PgSearch
+  multisearchable :against => [:name, :tag_list]
 
 end

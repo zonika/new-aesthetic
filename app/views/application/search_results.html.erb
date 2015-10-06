@@ -1,7 +1,14 @@
-<% if @users.length > 0 %>
-  <% @users.each do |user| %>
-  <p><%= (link_to "#{user.first_name} #{user.last_name}", profile_works_path(user)) %></p>
-  <% end %>
+<% if @results.length > 0 %>
+	<% @results.each do |result| %>
+
+		<% if result.searchable.class == User %>
+			<p><%= (link_to "#{result.searchable.first_name} #{result.searchable.last_name}", profile_path(result.searchable)) %></p>
+		<% elsif result.searchable.class == Work %>
+			<p><%= link_to profile_path(User.find(result.searchable.user_id)) do %>
+				<%= render Work.find(result.searchable) %>
+			<% end %> </p>
+		<% end %>
+	<% end %>
 <% else %>
-  <%= "No matches found." %>
+	<%= "No matches found." %>
 <% end %>

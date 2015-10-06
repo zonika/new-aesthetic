@@ -30,6 +30,11 @@ class ProfilesController < ApplicationController
     render 'show_follow'
   end
 
+  def search
+    @results = PgSearch.multisearch(params[:query])
+    render 'search_results'
+  end
+
   def collection
   end
 
