@@ -1,6 +1,12 @@
+Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+
 Rails.application.configure do
   config.assets.raise_production_errors = true
   # Settings specified here will take precedence over those in config/application.rb.
+
+  # config.action_mailer.default_url_options = { :host => 'your-host-name' }
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Rails.application.routes.default_url_options[:host] = 'https://localhost:3000/'
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -23,6 +29,8 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
+  #relating to messaging
+  config.action_mailer.perform_deliveries = true
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
@@ -48,5 +56,18 @@ Rails.application.configure do
      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
    }
  }
+
+ config.assets.raise_runtime_errors = true
+ config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: ENV["GMAIL_DOMAIN"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
+  }
 
 end
