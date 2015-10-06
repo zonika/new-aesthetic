@@ -7,6 +7,7 @@ class FeedsController < ApplicationController
     if user_signed_in?
       @feed_items = current_user.feed
     end
+  end
 
   def random
     @works = User.where(artist: true).where.not(masterpiece: nil).sample(6)

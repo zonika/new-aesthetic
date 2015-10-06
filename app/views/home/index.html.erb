@@ -37,7 +37,7 @@
 		<div class="site-wrapper">
 			<div class="site-wrapper-inner">
 				<div class="cover-container">
-					<div class="inner cover">
+					<div class="inner cover" style="display:none">
 						<h1>NEW AESTHETIC</h1>
 						<%= link_to "about", about_path %>
 						<br><br>
@@ -67,7 +67,8 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<%= render(partial: 'sign_up', format: 'js') %>
+		<%= render 'style' %>
 	</body>
 </html>
