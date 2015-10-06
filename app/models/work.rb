@@ -17,6 +17,10 @@ class Work < ActiveRecord::Base
   include PgSearch
   multisearchable :against => [:name, :tag_list]
 
+
+  # 100% light is white for any hue
+  # 0% light is black for any hue
+  # 0% saturation is a shade of gray for any hue
   def parse_colors(colors)
     hues = colors.collect do |co|
       hue = ColorMath::hex_color(co).hue.to_i
@@ -52,6 +56,5 @@ class Work < ActiveRecord::Base
       card.destroy
     end
   end
-
 
 end
