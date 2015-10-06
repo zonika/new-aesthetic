@@ -28,10 +28,11 @@ class User < ActiveRecord::Base
   def feed
     following_ids = "SELECT followed_id FROM relationships
                   WHERE  follower_id = :user_id"
-    Work.where("user_id IN (#{following_ids})
+    @works = Work.where("user_id IN (#{following_ids})
                   OR user_id = :user_id", user_id: id)
+    @works.order('created_at DESC')
   end
-  
+
   # Follows a user.
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
