@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20151003221007) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
+  create_table "riddles", force: :cascade do |t|
+    t.string   "question"
+    t.string   "answer"
+    t.string   "keyword"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -89,6 +97,13 @@ ActiveRecord::Schema.define(version: 20151003221007) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "users_riddles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "riddle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "works", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -109,5 +124,4 @@ ActiveRecord::Schema.define(version: 20151003221007) do
 
   add_index "works", ["user_id"], name: "index_works_on_user_id", using: :btree
 
-  add_foreign_key "works", "users"
 end
