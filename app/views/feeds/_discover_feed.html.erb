@@ -6,13 +6,25 @@
 </div>
 
 <% @works.each_with_index do |work,i| %>
-	<div class="section" style="background-image: url(<%= work.image.url(:large) %>);background-size:50% auto;background-repeat:no-repeat;background-position: <%= if (i+1)%2==0; 'left'; else; 'right' end %>;">
+	<div class="section" style="background-image: url(<%= work.image.url(:large) %>);background-size:50% auto;background-repeat:no-repeat;background-position: <%= if (i+1)%2==0; 'left'; else; 'right' end %>;overflow:hidden;">
 		<div class="<%= if (i+1)%2==0; 'discover_text'; else; 'discover_text_reverse'; end %>"><i><%= work.name %></i><br>
 			<a href='<%= profile_path(User.find(work.user_id)) %>'><%= User.find(work.user_id).full_name %></a><br>
+			<div class="thumbnail-text">
+			<% if !current_user.pieces.include?(work) %>
+				<%= form_tag(add_piece_path, method: :post, remote: true ) do %>
+					<%= hidden_field_tag(:curator, current_user.id) %>
+					<%= hidden_field_tag(:piece, work.id) %>
+					<%= submit_tag "add to your collection", class:"btn btn-sm" %>
+				<% end %>
+			<% else %>
+				<%= form_tag(remove_piece_path, method: :delete, remote: true ) do %>
+					<%= hidden_field_tag(:curator, current_user.id) %>
+					<%= hidden_field_tag(:piece, work.id) %>
+					<%= submit_tag("remove from your collection", class:"btn btn-sm") %>
+				<% end %>
+			<% end %>
+			</div>
 		</div>
-		<% if i==0 %>
-		<div class="arrow bounce"></div>
-		<% end %>
 	</div>
 <% end %>
 
