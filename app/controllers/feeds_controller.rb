@@ -25,4 +25,5 @@ class FeedsController < ApplicationController
     @works =  Work.order(times_collected: :desc)[0...6]
     render 'feeds'
   end
+
 end

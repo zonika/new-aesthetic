@@ -79,3 +79,7 @@ end
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
+
+#color searching gems
+gem 'miro'
+gem 'colormath'

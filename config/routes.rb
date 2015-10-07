@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   post '/add_piece', to: 'profiles#add_piece', as: 'add_piece'
   delete '/remove_piece', to: 'profiles#remove_piece', as: 'remove_piece'
 
+  post '/color', to: 'colors#search'
+
 end
