@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003221007) do
+ActiveRecord::Schema.define(version: 20151006225509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "color_cards", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colorcards", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "curator_works", force: :cascade do |t|
     t.integer "curator_id"
@@ -104,6 +122,28 @@ ActiveRecord::Schema.define(version: 20151003221007) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "work_colorcards", force: :cascade do |t|
+    t.integer  "colorcard_id"
+    t.integer  "work_id"
+    t.integer  "rank"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "work_colorcards", ["colorcard_id"], name: "index_work_colorcards_on_colorcard_id", using: :btree
+  add_index "work_colorcards", ["work_id"], name: "index_work_colorcards_on_work_id", using: :btree
+
+  create_table "work_colors", force: :cascade do |t|
+    t.integer  "work_id"
+    t.integer  "color_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "rank"
+  end
+
+  add_index "work_colors", ["color_id"], name: "index_work_colors_on_color_id", using: :btree
+  add_index "work_colors", ["work_id"], name: "index_work_colors_on_work_id", using: :btree
+
   create_table "works", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -124,4 +164,8 @@ ActiveRecord::Schema.define(version: 20151003221007) do
 
   add_index "works", ["user_id"], name: "index_works_on_user_id", using: :btree
 
+  add_foreign_key "work_colorcards", "colorcards"
+  add_foreign_key "work_colorcards", "works"
+  add_foreign_key "work_colors", "colors"
+  add_foreign_key "work_colors", "works"
 end
