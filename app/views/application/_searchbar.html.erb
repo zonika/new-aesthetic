@@ -1,8 +1,30 @@
 <div class="users-search" id="remote">
   <%= form_tag search_path, :method => 'post', remote: true, :class => 'search-bar-center' do %>
       <div class="form-group">
-        <span><%= text_field_tag :query, params[:query], :class => 'search rounded searchfield', :placeholder => "    Search for an artist, work, or tag..." %>
-        <%= submit_tag('Search', class: 'btn btn-sm') %>
+              <span><%= text_field_tag :query, params[:query], :class => 'search rounded searchfield', :placeholder => "    Search for an artist, work, or tag..." -%><%= submit_tag('Search', class: 'btn btn-sm', style: "margin-top:5px;margin-left:5px;") -%></span>        
       </div>
-  <% end %>
+        <% end %>
+      <div class="color-selector">
+	      <br>
+	      <%= form_tag(color_path, remote: true) do%>
+		      <%= label_tag 'red' %>
+		      <%= radio_button_tag 'color', 'red' %>
+		      <%= label_tag 'orange' %>
+		      <%= radio_button_tag 'color', 'orange' %>
+		      <%= label_tag 'yellow' %>
+		      <%= radio_button_tag 'color', 'yellow' %>
+		      <%= label_tag 'green' %>
+		      <%= radio_button_tag 'color', 'green' %>
+		      <%= label_tag 'blue' %>
+		      <%= radio_button_tag 'color', 'blue' %>
+		      <%= label_tag 'purple' %>
+		      <%= radio_button_tag 'color', 'purple' %>
+		      <%= label_tag 'black' %>
+		      <%= radio_button_tag 'color', 'black' %>
+		      <%= label_tag 'white' %>
+		      <%= radio_button_tag 'color', 'white', style: 'background-color:white;' %>
+		      &nbsp;
+		      <%= submit_tag "Search Color", class: 'btn btn-sm'%>
+	      <% end %>
+      </div>
 </div>
