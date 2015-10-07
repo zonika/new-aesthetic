@@ -1,18 +1,32 @@
-<% @works.each do |work| %>
-	<div class="section" style="background-image: url(<%= work.image.url(:large) %>);background-size:cover;background-position:center;">
-		<div class="discover_text"><%= work.name %> by <a href='<%= profile_path(User.find(work.user_id)) %>'><%= User.find(work.user_id).full_name %></a></div>
+<div class="section">
+	<div style="position:absolute;top:2%;right:0%;"><%= link_to current_user.full_name, profile_path(current_user) %></div>
+	<div id="discovery-cover-text" style="display:none"><h1 style="font-size: 6em;">Welcome to Discovery</h1>
+	scroll through the catalog to get a fresh glimpse of new works at new-aesthetic</div>
+	<%= image_tag 'arrow.png', id: 'arrow', style: 'display:none'  %>
+</div>
+
+<% @works.each_with_index do |work,i| %>
+	<div class="section" style="background-image: url(<%= work.image.url(:large) %>);background-size:50% auto;background-repeat:no-repeat;background-position: <%= if (i+1)%2==0; 'left'; else; 'right' end %>;">
+		<div class="<%= if (i+1)%2==0; 'discover_text'; else; 'discover_text_reverse'; end %>"><i><%= work.name %></i><br>
+			<a href='<%= profile_path(User.find(work.user_id)) %>'><%= User.find(work.user_id).full_name %></a><br>
+		</div>
+		<% if i==0 %>
+		<div class="arrow bounce"></div>
+		<% end %>
 	</div>
 <% end %>
+
 <script>
 $(document).ready(function() {
-	var s = [];
-	$('.discover_text').each(function() { s.push($(this).text()) });
+	$('#discovery-cover-text').fadeIn('slow');
+	$('#arrow').fadeIn('slow');
+	
+	var s = ['discover'];
+	$('.discover_text,.discover_text_reverse').each(function() { s.push($(this).text()) });
 	$('#fullpage').fullpage({
 		navigation: true,
 		navigationPosition: 'right',
-		navigationTooltips: s,
-		showActiveTooltip: true
-
+		navigationTooltips: s
 	});
 });
 </script>

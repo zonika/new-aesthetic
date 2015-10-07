@@ -507,22 +507,55 @@ textarea {
 
 .discover_text {
 	position:absolute;
-	bottom:10%;
-	left:5%;
+	bottom:40%;
+	right: 0%;
 	z-index:1;
-	font-size:18px;
-	font-weight:400;
+	font-size:15px;
+	font-weight:300;
 	letter-spacing: 2px;
-	background-color: white;
 	padding: 5px 10px;
 	border-radius: 3px;
-	color: black;
-	a {
-		color: black;
-	}
+	color: white;
+	width: 30%;
 }
+
+.discover_text_reverse {
+	position:absolute;
+	width: 30%;
+	bottom:40%;
+	left: 10%;
+	z-index:1;
+	font-size:15px;
+	font-weight:300;
+	letter-spacing: 2px;
+	padding: 5px 10px;
+	border-radius: 3px;
+	color: white;
+}
+
 
 div#fp-nav ul li a span, .fp-slidesNav ul li a span {
 	background: #FFF;
 	box-shadow: 2px 5px 5px #000000;
+}
+
+#arrow {
+	position: absolute;
+	bottom: 0%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+	max-height: 10%;
+	
+}
+
+#discovery-cover-text {
+	position: absolute;
+	bottom: 50%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+	text-shadow: 0 6px 15px rgba(0,0,0,0.8);
+	
+	
 }
