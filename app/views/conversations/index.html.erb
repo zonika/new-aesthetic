@@ -11,7 +11,7 @@
 
   <div class="col-sm-9">
     <ul class="list-group">
-      <%= render partial: 'conversations/conversation', collection: @conversations %>
+      <%= render partial: 'conversations/conversationheader', collection: @conversations, as: :conversation %>
     </ul>
   </div>
 

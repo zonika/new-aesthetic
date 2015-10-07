@@ -28,7 +28,7 @@ class ConversationsController < ApplicationController
       format.html
     end
   end
-
+  
   def destroy
     @conversation.move_to_trash(current_user)
     flash[:success] = 'The conversation was moved to trash.'

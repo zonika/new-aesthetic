@@ -480,3 +480,9 @@ a.btn-trash {
 .panel-default {
 	background-color: #2E2E2D;
 }
+
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0.00, 0.00, 0.02, 0.82), rgba(0, 0, 0, 0));
+}
