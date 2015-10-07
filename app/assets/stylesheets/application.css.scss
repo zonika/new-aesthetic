@@ -362,7 +362,6 @@ body {
 	-webkit-border-radius:15px;
 }
 
-
 textarea {
 	color: #000;
 	font-size:10px;
@@ -377,13 +376,12 @@ textarea {
   margin-top: 1em;
 }
 
-
 .media {
 	font-size: 14px;
 	font-size: 1.4rem;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	padding: 0px;
-	color: #555555;
+	color: #blue;
 }
 
 .list-group-item {
@@ -476,5 +474,9 @@ a.btn-trash {
 }
 
 .modal-content {
+	background-color: #2E2E2D;
+}
+
+.panel-default {
 	background-color: #2E2E2D;
 }

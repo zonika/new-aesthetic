@@ -9,6 +9,7 @@ class ConversationsController < ApplicationController
   def index
     if @box.eql? "inbox"
       @conversations = @mailbox.inbox
+      # this is how you grab the subject = @mailbox.inbox[0].subject
     elsif @box.eql? "sent"
       @conversations = @mailbox.sentbox
     else
@@ -22,6 +23,10 @@ class ConversationsController < ApplicationController
   def reply
     @receipt = current_user.reply_to_conversation(@conversation, params[:body])
     flash[:success] = 'Reply sent'
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def destroy
