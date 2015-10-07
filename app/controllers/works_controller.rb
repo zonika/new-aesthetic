@@ -14,7 +14,7 @@ class WorksController < ApplicationController
       end
       @work.parse_colors(colors)
       if !@user.masterpiece
-        @user.masterpiece = @work.id
+        @user.update(masterpiece:@work.id)
       end
     end
     redirect_to profile_path(@user)
