@@ -3,3 +3,10 @@
   <%= render 'message' %>
 <% end %>
 $("#modal-window").html("<%= j render 'layouts/modal_layout' %>");
+
+setTimeout(function(){
+  // close modal window once request complete
+  $(function(){
+     $('#modal-window').modal('toggle');
+  });
+}, 3000);

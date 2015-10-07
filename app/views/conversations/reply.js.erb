@@ -1,2 +1,2 @@
-$(".messages").append("<%= j render partial: 'message', locals: {receipt: @receipt} %>");
+$("#reply-conversation").append("<%= j render partial: 'message', locals: {receipt: @receipt} %>");
 $('textarea').val('');

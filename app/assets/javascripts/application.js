@@ -13,12 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-<<<<<<< HEAD
 //= require chosen-jquery
 //= require jquery.turbolinks
 //= require messages
-=======
 //= require lightbox
->>>>>>> master
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .

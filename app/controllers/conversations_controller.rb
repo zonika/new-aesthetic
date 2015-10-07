@@ -14,7 +14,6 @@ class ConversationsController < ApplicationController
     else
       @conversations = @mailbox.trash
     end
-    @conversations = @mailbox.inbox.paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -23,11 +22,6 @@ class ConversationsController < ApplicationController
   def reply
     @receipt = current_user.reply_to_conversation(@conversation, params[:body])
     flash[:success] = 'Reply sent'
-    respond_to do |format|
-      format.html
-      format.js
-    end
-
   end
 
   def destroy

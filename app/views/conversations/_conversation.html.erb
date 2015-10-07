@@ -2,9 +2,8 @@
 
   <%= link_to conversation.subject, conversation_path(conversation) %>
 
-  <%= form_tag reply_conversation_path(conversation, remote: true) do %>
+  <%= form_tag reply_conversation_path(conversation), remote: true do %>
     <div class="form-group">
-      <!-- message-body -->
       <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
     </div>
   <%= submit_tag "Send Message", class: 'btn btn-primary' %>
@@ -19,9 +18,10 @@
     <% end %>
   </div>
 
-  <p><%= render 'conversations/participants', conversation: conversation %></p>
+  <div id="reply-conversation">
+    <p><%= render 'conversations/participants', conversation: conversation %></p>
 
-  <p><%= conversation.last_message.body %>
-      <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
-
+    <p><%= conversation.last_message.body %>
+        <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
+  </div>
 </li>
