@@ -3,7 +3,7 @@
   <%= hidden_field_tag 'recipients', params[:user_id] %>
 
   <div class="form-group">
-    <%= label_tag 'message[subject]', 'Subject' %>
+    <%= label_tag 'message[subject]', 'Subject', :id => "modal" %>
     <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
   </div>
 

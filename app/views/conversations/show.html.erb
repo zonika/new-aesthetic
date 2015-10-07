@@ -10,7 +10,6 @@
   <div class="panel-body">
     <div class="messages">
       <% @conversation.receipts_for(current_user).each do |receipt| %>
-        <%# j render partial: 'message', locals: {receipt: receipt}  %>
         <div class="media">
           <% message = receipt.message %>
           <div class="media-body">
