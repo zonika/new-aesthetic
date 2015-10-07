@@ -16,12 +16,12 @@
 		      <%= submit_tag("remove from your collection", class:"btn btn-sm") %>
 	      <% end %>
       <% end %>
-      <% if User.find(work.user_id) == current_user %>
-	      <%= link_to "Edit This Work", edit_profile_work_path(User.find(work.user_id),work) %>
-      <% end %>
     </div>
-
+    <% if User.find(work.user_id) == current_user %>
+	    <div class="thumbnail-edit-link">
+		    <%= link_to "Edit This Work", edit_profile_work_path(User.find(work.user_id),work) %>
+	    </div>
+    <% end %>
     </div>
-
   </div>
 </div>

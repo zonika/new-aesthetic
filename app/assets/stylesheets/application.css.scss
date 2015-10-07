@@ -80,12 +80,17 @@ div.col-md-4 {
 div.thumbnail-text {
 	position: absolute;
 	z-index:1;
-	color: #000000;
+	color: #fff;
 	a {
 		color:rgba(255,255,255,0.8);
 	}
 }
 
+div.thumbnail-edit-link {
+	position:relative;
+	top: 90%;
+	left: 5%;
+}
 
 /*
  * Index Page and Some Global Styles
