@@ -13,6 +13,9 @@ class WorksController < ApplicationController
         @work = @user.works.create(work_params)
       end
       @work.parse_colors(colors)
+      if !@user.masterpiece
+        @user.masterpiece = @work.id
+      end
     end
     redirect_to profile_path(@user)
   end
