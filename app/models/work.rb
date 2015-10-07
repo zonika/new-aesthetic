@@ -22,28 +22,41 @@ class Work < ActiveRecord::Base
   # 0% light is black for any hue
   # 0% saturation is a shade of gray for any hue
   def parse_colors(colors)
-    hues = colors.collect do |co|
-      hue = ColorMath::hex_color(co).hue.to_i
-      if hue >= 0 && hue < 30
-        "red"
-      elsif hue >= 30 && hue < 60
-        'orange'
-      elsif hue >= 60 && hue < 90
-        'yellow'
-      elsif hue >= 90 && hue < 180
-        'green'
-      elsif hue >= 180 && hue < 270
-        'blue'
-      elsif hue >= 270 && hue < 330
-        'purple'
-      elsif hue >= 330 && hue <= 360
-        'pink'
+    hues = colors.collect do |hue|
+      hue = ColorMath::hex_color(hue)
+      if hue.saturation*100 > 15
+        if hue.luminance*100 > 7 && hue.luminance*100 < 90
+          if hue.hue >= 0 && hue.hue < 15
+            "red"
+          elsif hue.hue >= 15 && hue.hue < 40
+            'orange'
+          elsif hue.hue >= 40 && hue.hue < 70
+            'yellow'
+          elsif hue.hue >= 70 && hue.hue < 160
+            'green'
+          elsif hue.hue >= 160 && hue.hue < 250
+            'blue'
+          elsif hue.hue >= 250 && hue.hue < 290
+            'purple'
+          elsif hue.hue >= 290 && hue.hue <= 360
+            'red'
+          end
+        elsif hue.luminance*100 <= 7
+          'black'
+        elsif hue.luminance*100 >= 90
+          'white'
+        end
+      else
+        if hue.luminance*100 <= 50
+          'black'
+        elsif hue.luminance*100 > 50
+          'white'
+        end
       end
     end
     hues.uniq!
     i = 1
     hues.each do |hue|
-      binding.pry
       c = Colorcard.find_by(name: hue)
       WorkColorcard.create(work_id:id,colorcard_id:c.id,rank:i)
       i+=1
