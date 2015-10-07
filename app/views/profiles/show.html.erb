@@ -2,19 +2,19 @@
 
 	<% if current_user.artist && current_user != @user   %>
 				<%= render partial: 'messages/message_button', locals: { user: @user } %>
-		<%# link_to "Message", message_user_path(@user)  %>
 	<% end %>
 
-	<% if @user == current_user %>
-		<% if @user.artist_statement && @user.artist_statement != ""%>
-			<br><br>
-			<div style="width:60%;margin:0 0 0 5%">
+	<% if @user.artist_statement && @user.artist_statement != ""%>
+				<br><br>
+				<div style="width:60%;margin:0 0 0 5%">
 		<%= @user.artist_statement %><br></div>
 	<% end %>
 	<br>
 
-<%= link_to "Edit Profile", edit_profile_path %><br>
-<% end %>
+	<% if @user == current_user %>
+	<%= link_to "Edit Profile", edit_profile_path %><br>
+	<% end %>
+
 <div class="row">
 	<%= render @user.works %>
 </div><br>

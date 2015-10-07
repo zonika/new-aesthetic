@@ -16,6 +16,11 @@ class ProfilesController < ApplicationController
     redirect_to profile_path
   end
 
+  def search
+    @results = PgSearch.multisearch(params[:query])
+    render 'search_results'
+  end
+
   def collection
   end
 

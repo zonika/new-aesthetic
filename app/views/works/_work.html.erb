@@ -1,13 +1,8 @@
 <div class="col-md-4">
   <div class="thumbnail_container">
     <div class="thumbnail">
-      <%= image_tag work.image.url(:large) %>
-    </div>
+      <a href="<%= work.image.url(:large) %>" data-toggle="lightbox" data-galery="multiimages" data-title="<%= work.name %> by <a href='<%= profile_path(User.find(work.user_id)) %>'><%= User.find(work.user_id).full_name %></a>" data-footer="<%= work.tag_list %>"><%= image_tag work.image.url(:large) %></a>
     <div class="thumbnail-text">
-      <em><%= work.name %></em><br>
-      <%= User.find(work.user_id).full_name %><br>
-      Tagged as:<br>
-      <%= work.tag_list %><br>
       <% if !current_user.pieces.include?(work) %>
 	      <%= form_tag(add_piece_path, method: :post ) do %>
 		      <%= hidden_field_tag(:curator, current_user.id) %>
@@ -22,8 +17,10 @@
 	      <% end %>
       <% end %>
       <% if User.find(work.user_id) == current_user %>
-	      <br>
+	      <%= link_to "Edit This Work", edit_profile_work_path(User.find(work.user_id),work) %>
       <% end %>
+    </div>
+
     </div>
 
   </div>

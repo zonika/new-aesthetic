@@ -57,6 +57,7 @@ Rails.application.configure do
    }
  }
 
+# <<<<<<< HEAD
  config.assets.raise_runtime_errors = true
  config.action_mailer.delivery_method = :smtp
 
@@ -69,5 +70,16 @@ Rails.application.configure do
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
   }
+# =======
+#  config.action_mailer.delivery_method = :smtp
+#   config.action_mailer.smtp_settings = {
+#    address:              'smtp.gmail.com',
+#    port:                 587,
+#    domain:               'gmail.com',
+#    user_name:            ENV['GMAIL_USERNAME'],
+#    password:             ENV['GMAIL_PASSWORD'],
+#    authentication:       'plain',
+#    enable_starttls_auto: true  }
+# >>>>>>> master
 
 end

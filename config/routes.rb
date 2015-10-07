@@ -20,8 +20,13 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about', as: 'about'
   get '/search', to: 'profiles#search', as: 'search'
   get '/discovery', to: 'feeds#discover', as: 'discover'
+
   get '/messages/:user_id', to: 'messages#message_user', as: 'message_user'
-  get '/collection', to: 'profiles#collection', as: 'collection'
+  post '/random', to: 'feeds#random', as: 'random'
+
+  post '/most_collected', to: 'feeds#most_collected', as: 'most_collected'
+  post '/collection', to: 'profiles#collection', as: 'collection'
+
   post '/add_piece', to: 'profiles#add_piece', as: 'add_piece'
   delete '/remove_piece', to: 'profiles#remove_piece', as: 'remove_piece'
 
