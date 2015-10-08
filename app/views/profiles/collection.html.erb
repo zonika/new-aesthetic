@@ -1,4 +1,7 @@
-<h2>Your Collection</h2><%= link_to "generate PDF catalog", collection_path(:format => :pdf), class: 'btn btn-sm' %>
+<h2>Your Collection</h2>
+<% if current_user.pieces.count != 0 %>
+	<%= link_to "generate PDF catalog", collection_path(:format => :pdf), class: 'btn btn-sm' %>
+<% end %>
 <br>
 <br>
 <%= render current_user.pieces %>
