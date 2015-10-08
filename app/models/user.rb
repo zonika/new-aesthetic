@@ -6,14 +6,13 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  has_many :works
 
   include PgSearch
   multisearchable against: [:first_name,:last_name]
 
+  has_many :works
   has_many :curator_works, :foreign_key => "curator_id"
   has_many :pieces, through: :curator_works, :class_name => "Work"
-
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -23,8 +22,15 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  acts_as_messageable
+
   def index
     @users = User.all
+  end
+
+
+  def mailboxer_email(object)
+    email
   end
 
   def feed

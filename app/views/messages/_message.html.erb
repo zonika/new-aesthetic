@@ -1,0 +1,21 @@
+<%= form_tag messages_path, method: :post, remote: true do %>
+  <div class="modal-body">
+    <div class="form-group">
+      <%= label_tag 'message[subject]', 'Subject' %>
+      <%= text_field_tag 'message[subject]', nil, cols: 3, class: 'form-control', required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag 'message[body]', 'Message' %>
+      <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= hidden_field_tag 'message[recipient]', @chosen_recipient.id %>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <%= submit_tag 'Send Message', class: 'btn-modal-send btn-default rounded-2' %>
+  </div>
+<% end %>

@@ -11,6 +11,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'jquery-turbolinks'
+
+gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -41,6 +44,8 @@ gem 'pg_search'
 # gem 'capistrano-rails', group: :development
 
 gem 'dotenv-rails'
+gem "mailboxer"
+gem 'chosen-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -77,7 +82,9 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
 gem 'devise'
 
 #color searching gems

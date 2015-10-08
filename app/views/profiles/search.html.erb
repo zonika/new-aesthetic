@@ -1,23 +1,4 @@
 <%= render 'searchbar' %>
 
-<%= form_tag(color_path, remote: true) do%>
-  <%= label_tag 'red' %>
-  <%= radio_button_tag 'color', 'red' %>
-  <%= label_tag 'orange' %>
-  <%= radio_button_tag 'color', 'orange' %>
-  <%= label_tag 'yellow' %>
-  <%= radio_button_tag 'color', 'yellow' %>
-  <%= label_tag 'green' %>
-  <%= radio_button_tag 'color', 'green' %>
-  <%= label_tag 'blue' %>
-  <%= radio_button_tag 'color', 'blue' %>
-  <%= label_tag 'purple' %>
-  <%= radio_button_tag 'color', 'purple' %>
-  <%= label_tag 'black' %>
-  <%= radio_button_tag 'color', 'black' %>
-  <%= label_tag 'white' %>
-  <%= radio_button_tag 'color', 'white' %>
-  <%= submit_tag "Search Color", class: 'btn btn-sm'%>
-<% end %>
 
 <div class="search_results"></div>
