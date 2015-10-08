@@ -18,22 +18,3 @@ We welcome open source contributions so please feel free to download the code an
 *-- License --*
 
 New Aesthetic is MIT Licensed. See LICENSE for details.
-
-
-
-CODE
-
-As the search feature is using Elasticsearch first install elastic search via your terminal:
----------------------------
-$ brew install elasticsearch
----------------------------
-
-Next, run the elastic search server by running:
----------------------------
-$ elasticsearch
----------------------------
-
-And lastly, index your search using the following command:
----------------------------
-$ rake searchkick:reindex CLASS=User
----------------------------
