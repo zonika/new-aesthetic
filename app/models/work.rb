@@ -8,8 +8,9 @@ class Work < ActiveRecord::Base
   has_many :colorcards, through: :work_colorcards
 
   has_attached_file :image, styles: { large: "600x600>", medium: "300x300>"}
-  validates_attachment_content_type :image, content_type: /\image\/.*\Z/
   validates :name, presence:true
+  validates :image, presence:true
+  validates_attachment_content_type :image, content_type: /\image\/.*\Z/
   acts_as_taggable
 
   before_destroy :destroy_relations
@@ -17,10 +18,6 @@ class Work < ActiveRecord::Base
   include PgSearch
   multisearchable :against => [:name, :tag_list]
 
-
-  # 100% light is white for any hue
-  # 0% light is black for any hue
-  # 0% saturation is a shade of gray for any hue
   def parse_colors(colors)
     hues = colors.collect do |hue|
       hue = ColorMath::hex_color(hue)

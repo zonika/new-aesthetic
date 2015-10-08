@@ -1,7 +1,8 @@
 Rails.application.configure do
   GA.tracker = Rails.application.secrets.google_analytics_code
-  config.action_mailer.default_url_options = { host: Rails.application.secrets.host }
   # Settings specified here will take precedence over those in config/application.rb.
+  # Rails.application.routes.default_url_options[:host] = 'http://new-aesthetic.herokuapp.com/'
+  config.action_mailer.default_url_options = { host: 'https://new-aesthetic.herokuapp.com/'}
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -87,15 +88,33 @@ Rails.application.configure do
      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
-  config.action_mailer.delivery_method = :smtp
-   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            ENV['GMAIL_USERNAME'],
-    password:             ENV['GMAIL_PASSWORD'],
-    authentication:       'plain',
-    enable_starttls_auto: true  }
+# <<<<<<< HEAD
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: ENV["GMAIL_DOMAIN"],
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: ENV["GMAIL_USERNAME"],
+  password: ENV["GMAIL_PASSWORD"]
+  }
+# =======
+#   config.action_mailer.delivery_method = :smtp
+#    config.action_mailer.smtp_settings = {
+#     address:              'smtp.gmail.com',
+#     port:                 587,
+#     domain:               'gmail.com',
+#     user_name:            ENV['GMAIL_USERNAME'],
+#     password:             ENV['GMAIL_PASSWORD'],
+#     authentication:       'plain',
+#     enable_starttls_auto: true  }
+#
+# >>>>>>> master
 
 end

@@ -1,0 +1,27 @@
+<li class="list-group-item clearfix">
+
+  <%= link_to conversation.subject, conversation_path(conversation) %>
+
+  <%= form_tag reply_conversation_path(conversation), remote: true do %>
+    <div class="form-group">
+      <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+    </div>
+  <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+  <% end %>
+
+  <div class="btn-group-vertical">
+    <% if conversation.is_trashed?(current_user) %>
+      <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
+    <% else %>
+    <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-trash', method: :delete,
+                data: {confirm: 'Are you sure?'} %>
+    <% end %>
+  </div>
+
+  <div id="reply-conversation">
+    <p><%= render 'conversations/participants', conversation: conversation %></p>
+
+    <p><%= conversation.last_message.body %>
+        <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
+  </div>
+</li>

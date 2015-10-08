@@ -1,6 +1,14 @@
 <% if @user.works.length < 3 %>
 	<div class="form-horizontal">
 		<%= form_for [@user, Work.new], url: profile_works_path(@user.id), html: {multipart: true} do |f| %>
+			<% if @user.works.last.errors.any? %>
+				<div class="alert alert-danger alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<% @user.works.last.errors.full_messages.each do |msg| %>
+						<div class=""><%= msg %></div>
+					<% end %>
+				</div>
+			<% end %>
 			<div class="form-group">
 				<%= f.label :name, class: "control-label" %>
 				<%= f.text_field :name, value: 'Untitled', class: "form-control" %>

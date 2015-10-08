@@ -22,6 +22,10 @@
  */
 
 @import "bootstrap";
+@import 'bootstrap/theme';
+@import "chosen";
+/* Some Style from the Bootstrap Default Theme */
+
 
 .theme-dropdown .dropdown-menu {
 	position: static;
@@ -64,7 +68,6 @@ input {
 	right: 0;
 	margin: auto;
 	padding: 10px;
-
 }
 
 img{
@@ -102,7 +105,7 @@ a,
 a:focus,
 a:hover {
 	color: #fff;
-	
+
 }
 
 /* Custom default button */
@@ -127,7 +130,8 @@ body {
 	color: #fff
 }
 
-/* Extra markup and styles for table-esque vertical and horizontal centering */
+/* Extra markup and styles for table-esque
+ and horizontal centering */
 .site-wrapper {
 	display: table;
 	width: 100%;
@@ -136,10 +140,12 @@ body {
 	-webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
         box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
+
 .site-wrapper-inner {
 	display: table-cell;
 	vertical-align: top;
 }
+
 .cover-container {
 	margin-right: auto;
 	margin-left: auto;
@@ -172,9 +178,11 @@ div .inner .cover {
 .masthead-nav > li {
 	display: inline-block;
 }
+
 .masthead-nav > li + li {
 	margin-left: 20px;
 }
+
 .masthead-nav > li > a {
 	padding-right: 0;
 	padding-left: 0;
@@ -184,12 +192,14 @@ div .inner .cover {
 	color: rgba(255,255,255,.75);
 	border-bottom: 2px solid transparent;
 }
+
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
 	background-color: transparent;
 	border-bottom-color: #a9a9a9;
 	border-bottom-color: rgba(255,255,255,.25);
 }
+
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
@@ -270,6 +280,12 @@ div .inner .cover {
 	}
 }
 
+@media (min-width: 360px) {
+	textarea {
+		width: 300px;
+	}
+}
+
 
 #search-btn {
 	border-width: 3px;
@@ -344,7 +360,7 @@ div .inner .cover {
 
 .form-group {
 	margin: 0 auto;
-	width: 400px;
+	// width: 400px;
 	border: 0px;
 	margin-bottom: 10px;
 }
@@ -361,6 +377,12 @@ div .inner .cover {
 	border-radius:15px;
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
+}
+
+.rounded-2 {
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
 }
 
 .stats {
@@ -389,6 +411,40 @@ div .inner .cover {
 textarea {
 	color: #000;
 	font-size:10px;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.media {
+	font-size: 14px;
+	font-size: 1.4rem;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	padding: 0px;
+	color: #blue;
+}
+
+.list-group-item {
+	background-color: #222;
+}
+
+a.btn-trash {
+	background-color: #2E2E2D;
+}
+
+a.btn-empty-trash {
+	background-color: #2E2E2D;
+	margin-left: 430px;
+}
+
+.btn-group-vertical {
+	margin-bottom: 10px;
 }
 
 
@@ -407,6 +463,7 @@ textarea {
 	opacity: 0.95;
 	background-color: #333333;
 }
+
 .ekko-lightbox .modal-content {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -564,7 +621,7 @@ div#fp-nav ul li a span, .fp-slidesNav ul li a span {
 	/* bring your own prefixes */
 	transform: translate(-50%, -50%);
 	max-height: 10%;
-	
+
 }
 
 #discovery-cover-text {
@@ -574,8 +631,8 @@ div#fp-nav ul li a span, .fp-slidesNav ul li a span {
 	/* bring your own prefixes */
 	transform: translate(-50%, -50%);
 	text-shadow: 0 6px 15px rgba(0,0,0,0.8);
-	
-	
+
+
 }
 
 /* radio buttons */
@@ -584,4 +641,29 @@ div.color-selector {
 	margin: auto;
  	width: 60%;
 	text-align: center;
+}
+
+.modal-content {
+	background-color: #2E2E2D;
+}
+
+.panel-default {
+	background-color: #2E2E2D;
+}
+
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0.00, 0.00, 0.02, 0.82), rgba(0, 0, 0, 0));
+}
+
+.btn-modal-send  {
+  text-color: #2E2E2D;
+}
+
+.inner-cover {
+	-webkit-opacity: 0.93;
+	-moz-opacity: 0.93;
+	opacity: 0.93;
+	background-color: #333333;
 }
