@@ -1,0 +1,6 @@
+<%= form_tag(remove_piece_path, method: :delete, remote: true ) do %>
+	<%= hidden_field_tag(:curator, current_user.id) %>
+	<%= hidden_field_tag(:piece, @piece_id) %>
+	<%= submit_tag("remove from your collection", class:"btn btn-sm") %>
+<% end %>
+

@@ -83,12 +83,18 @@ div.col-md-4 {
 div.thumbnail-text {
 	position: absolute;
 	z-index:1;
-	color: #000000;
+	color: #fff;
 	a {
-	  color:rgba(255,255,255,0.8);
+		color:rgba(255,255,255,0.8);
 	}
 }
 
+div.thumbnail-edit-link {
+	position:relative;
+	top: 95%;
+	left: 1%;
+	font-size: 0.8em;
+}
 
 /*
  * Index Page and Some Global Styles
@@ -99,6 +105,7 @@ a,
 a:focus,
 a:hover {
 	color: #fff;
+
 }
 
 /* Custom default button */
@@ -143,11 +150,20 @@ body {
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
+	width: 30%;
 }
 
-/* Padding for spacing */
 .inner {
-	padding: 30px;
+	padding: 30px 0;
+	h1 {
+		font-weight: 300;
+		letter-spacing: 1px;
+		font-size: 3em;
+	}
+}
+
+div .inner .cover {
+	padding: 85px 0;
 }
 
 
@@ -206,7 +222,7 @@ body {
  */
 
 .cover {
-	padding: 17%;
+	padding: 5%;
 	/* 	background-color:rgba(0,0,0,0.2); */
 	/*border: 3px solid #A3C68C;*/
 	border-radius: 50px;
@@ -363,6 +379,35 @@ body {
 	-webkit-border-radius:15px;
 }
 
+.rounded-2 {
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+.stats {
+	overflow: auto;
+	margin-top: 0;
+	padding: 0;
+	a {
+		float: left;
+		padding: 0 10px;
+		border-left: 1px solid $gray-lighter;
+		color: gray;
+		&:first-child {
+			padding-left: 0;
+			border: 0;
+		}
+		&:hover {
+			text-decoration: none;
+			color: blue;
+		}
+	}
+	strong {
+		display: block;
+	}
+}
+
 textarea {
 	color: #000;
 	font-size:10px;
@@ -401,6 +446,7 @@ a.btn-empty-trash {
 .btn-group-vertical {
 	margin-bottom: 10px;
 }
+
 
 .modal-dialog {}
 .thumbnail {margin-bottom:6px;}
@@ -472,11 +518,129 @@ a.btn-empty-trash {
 }
 
 .navbar-toggle .icon-bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: #cccccc;
-  border-radius: 1px;
+	display: block;
+	width: 22px;
+	height: 2px;
+	background-color: #cccccc;
+	border-radius: 1px;
+}
+
+
+/*
+ * button shtuff
+ */
+
+.btn {
+	padding: 5px 5px;
+	border: 0 none;
+	font-weight: 300;
+	letter-spacing: 2px;
+	border-radius: 3px;
+	position: absolute;
+	z-index:1;
+}
+
+
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+	background: #33a6cc;
+
+}
+
+.btn-primary:active, .btn-primary.active {
+	background: #444444;
+	box-shadow: none;
+}
+
+.btn-default:hover {
+	padding: 3.5px;
+}
+
+.btn-default {
+
+}
+
+.btn-sm {
+	background: #333333;
+	font-weight: 400;
+	color: #FFFFFF;
+}
+
+a.btn:visited {
+	color: #FFF;
+}
+
+a.btn:hover{
+	color: rgb(0,255,255);
+}
+
+.btn:hover {
+	color: rgb(0,255,255);
+}
+
+/* discover page */
+
+.discover_text {
+	position:absolute;
+	bottom:40%;
+	right: 0%;
+	z-index:1;
+	font-size:15px;
+	font-weight:300;
+	letter-spacing: 2px;
+	padding: 5px 10px;
+	border-radius: 3px;
+	color: white;
+	width: 30%;
+}
+
+.discover_text_reverse {
+	position:absolute;
+	width: 30%;
+	bottom:40%;
+	left: 10%;
+	z-index:1;
+	font-size:15px;
+	font-weight:300;
+	letter-spacing: 2px;
+	padding: 5px 10px;
+	border-radius: 3px;
+	color: white;
+}
+
+
+div#fp-nav ul li a span, .fp-slidesNav ul li a span {
+	background: #FFF;
+	box-shadow: 2px 5px 5px #000000;
+}
+
+#arrow {
+	position: absolute;
+	bottom: 0%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+	max-height: 10%;
+
+}
+
+#discovery-cover-text {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+	text-shadow: 0 6px 15px rgba(0,0,0,0.8);
+
+
+}
+
+/* radio buttons */
+
+div.color-selector {
+	margin: auto;
+ 	width: 60%;
+	text-align: center;
 }
 
 .modal-content {
@@ -491,4 +655,8 @@ hr.style-two {
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0.00, 0.00, 0.02, 0.82), rgba(0, 0, 0, 0));
+}
+
+.btn-modal-send  {
+  text-color: #2E2E2D;
 }

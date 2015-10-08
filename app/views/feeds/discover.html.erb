@@ -1,23 +1,22 @@
-<%= render 'searchbar' %>
-<div class="btn-group btn-toggle" style="display:inline;">
-  <%= link_to 'Random Works', random_path, remote:true, class: 'btn btn-primary active', method: :post %>
-  <%= link_to 'Most Collected', most_collected_path, remote:true, class: 'btn btn-default', method: :post %>
-</div>
-<br><br>
-<div class="feed">
-  <%= render 'works' %>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<%= stylesheet_link_tag    "application" %>
+		<%= javascript_include_tag "application" %>
+		<%= stylesheet_link_tag "jquery.fullPage.css" %>
+		<%= javascript_include_tag "jquery.fullPage.js" %>
+		<%= csrf_meta_tags %>
 
-<script>
+	</head>
+	<body>
+		<div class="container">
 
-$('.btn-toggle').click(function() {
-    $(this).find('.btn').toggleClass('active');
-
-    if ($(this).find('.btn-primary').size()>0) {
-    	$(this).find('.btn').toggleClass('btn-primary');
-    }
-    $(this).find('.btn').toggleClass('btn-default');
-
-});
-
-</script>
+	<div id="fullpage" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px);">
+		<%= render 'discover_feed' %>
+	</div>
+	</div>
+	
+	</body>
+</html>

@@ -16,10 +16,27 @@ class ProfilesController < ApplicationController
     redirect_to profile_path
   end
 
-  def search
-    @results = PgSearch.multisearch(params[:query])
-    render 'search_results'
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
   end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def search
+  end
+
+  def search_results
+    @results = PgSearch.multisearch(params[:query])
+  end
+    
 
   def collection
   end
@@ -29,7 +46,9 @@ class ProfilesController < ApplicationController
       redirect_to '/'
     else
       CuratorWork.create(curator_id: params[:curator].to_i, piece_id: params[:piece].to_i)
-      render 'collection'
+      @piece_id = params[:piece]
+      @action = 'add';
+      render 'piece_change'
     end
   end
 
@@ -39,7 +58,10 @@ class ProfilesController < ApplicationController
     else
       relation = CuratorWork.where(curator_id: current_user.id, piece_id: params[:piece].to_i)
       relation.first.destroy
-      render 'collection'
+      @piece_id = params[:piece]
+      @action = 'remove';
+      @discovery = true if request.env["HTTP_REFERER"].include?('collection');
+      render 'piece_change'
     end
   end
 

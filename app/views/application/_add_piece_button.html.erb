@@ -1,0 +1,5 @@
+<%= form_tag(add_piece_path, method: :post, remote: true ) do %>
+	<%= hidden_field_tag(:curator, current_user.id) %>
+	<%= hidden_field_tag(:piece, @piece_id) %>
+	<%= submit_tag "add to your collection", class:"btn btn-sm" %>
+<% end %>

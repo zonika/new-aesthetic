@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005112811) do
+ActiveRecord::Schema.define(version: 20151006225509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "colorcards", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "curator_works", force: :cascade do |t|
     t.integer "curator_id"
@@ -142,6 +148,17 @@ ActiveRecord::Schema.define(version: 20151005112811) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "work_colorcards", force: :cascade do |t|
+    t.integer  "colorcard_id"
+    t.integer  "work_id"
+    t.integer  "rank"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "work_colorcards", ["colorcard_id"], name: "index_work_colorcards_on_colorcard_id", using: :btree
+  add_index "work_colorcards", ["work_id"], name: "index_work_colorcards_on_work_id", using: :btree
+
   create_table "works", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -165,5 +182,7 @@ ActiveRecord::Schema.define(version: 20151005112811) do
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+  add_foreign_key "work_colorcards", "colorcards"
+  add_foreign_key "work_colorcards", "works"
   add_foreign_key "works", "users"
 end

@@ -38,20 +38,21 @@
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
 	<div class="cover-container">
-	  <div class="inner cover">
+	  <div class="inner cover" style="display:none">
 	    <h1>NEW AESTHETIC</h1>
   	    <p class="lead">the new arts network</p>
 	    <p>Pitchfork artisan Etsy, XOXO non tousled incididunt gentrify aliqua cillum slow-carb health goth fap YOLO mollit. Tumblr est in gluten-free flexitarian Portland. Leggings chia aliquip, veniam Bushwick ut butcher sustainable mixtape disrupt. Aute est Echo Park velit. Fixie aute selfies tote bag actually next level. Enim id nesciunt, proident Austin magna occupy normcore cupidatat gastropub banh mi hoodie flexitarian PBR&B. Labore gentrify meh, ad laborum sartorial chambray freegan synth try-hard.</p>
 	  </div>
 	</div>
 	<div class="mastfoot">
-		<div class="inner">
+		<div class="inner center">
 			<p><%= Work.find(user.masterpiece).name %> by <%= user.full_name %></p>
 		</div>
 	</div>
 
       </div>
     </div>
+    <%= render 'style' %>
 
   </body>
 </html>

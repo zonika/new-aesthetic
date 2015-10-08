@@ -1,0 +1,17 @@
+$('.thumbnail-text').each(function(){
+	$(this).children().children().each(function(){
+		if ($(this).val() == <%= @piece_id %> && '<%= @action %>' == 'remove') {
+			if (<%= if @discovery; @discovery; else; false; end %>) {
+				$(this).parent().parent().parent().parent().parent().fadeOut('fast');
+			}
+			else {
+				$(this).parent().parent().html('<%= j render 'add_piece_button' %>');
+			}
+				
+		}		
+		if ($(this).val() == <%= @piece_id %> && '<%= @action %>' == 'add') {
+			$(this).parent().parent().html('<%= j render 'remove_piece_button' %>');
+		}
+	});
+});
+

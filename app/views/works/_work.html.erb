@@ -2,26 +2,26 @@
   <div class="thumbnail_container">
     <div class="thumbnail">
       <a href="<%= work.image.url(:large) %>" data-toggle="lightbox" data-galery="multiimages" data-title="<%= work.name %> by <a href='<%= profile_path(User.find(work.user_id)) %>'><%= User.find(work.user_id).full_name %></a>" data-footer="<%= work.tag_list %>"><%= image_tag work.image.url(:large) %></a>
-    <div class="thumbnail-text">
+      <div class="thumbnail-text">
       <% if !current_user.pieces.include?(work) %>
-	      <%= form_tag(add_piece_path, method: :post ) do %>
+	      <%= form_tag(add_piece_path, method: :post, remote: true ) do %>
 		      <%= hidden_field_tag(:curator, current_user.id) %>
 		      <%= hidden_field_tag(:piece, work.id) %>
-		      <%= submit_tag("add to your collection") %>
+		      <%= submit_tag "add to your collection", class:"btn btn-sm" %>
 	      <% end %>
       <% else %>
-	      <%= form_tag(remove_piece_path, method: :delete ) do %>
+	      <%= form_tag(remove_piece_path, method: :delete, remote: true ) do %>
 		      <%= hidden_field_tag(:curator, current_user.id) %>
 		      <%= hidden_field_tag(:piece, work.id) %>
-		      <%= submit_tag("remove from your collection") %>
+		      <%= submit_tag("remove from your collection", class:"btn btn-sm") %>
 	      <% end %>
       <% end %>
-      <% if User.find(work.user_id) == current_user %>
-	      <%= link_to "Edit This Work", edit_profile_work_path(User.find(work.user_id),work) %>
-      <% end %>
     </div>
-
+    <% if User.find(work.user_id) == current_user %>
+	    <div class="thumbnail-edit-link">
+		    <%= link_to "Edit This Work", edit_profile_work_path(User.find(work.user_id),work) %>
+	    </div>
+    <% end %>
     </div>
-
   </div>
 </div>
