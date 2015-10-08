@@ -3,10 +3,16 @@
     <br>
       <div class="conversation-links">
         <%= link_to conversation.subject, conversation_path(conversation) %>
-
         <hr class='style-two'>
-
         <p><%= render 'conversations/participants', conversation: conversation %></p>
+        <div class="btn-group-vertical">
+
+          <% if conversation.is_trashed?(current_user) %>
+            <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
+          <% else %>
+          <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-trash', method: :delete %>
+          <% end %>
+        </div>
       </div>
   </div>
 </li>

@@ -13,8 +13,8 @@
     <% if conversation.is_trashed?(current_user) %>
       <%= link_to 'Restore', restore_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
     <% else %>
-      <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-trash', method: :delete,
-                  data: {confirm: 'Are you sure?'} %>
+    <%= link_to 'Move to trash', conversation_path(conversation), class: 'btn btn-xs btn-trash', method: :delete,
+                data: {confirm: 'Are you sure?'} %>
     <% end %>
   </div>
 

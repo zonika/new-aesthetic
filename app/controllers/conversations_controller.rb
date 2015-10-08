@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
       # this is how you grab the subject = @mailbox.inbox[0].subject
     elsif @box.eql? "sent"
       @conversations = @mailbox.sentbox
-    else
+    else @box.eql? "trash"
       @conversations = @mailbox.trash
     end
   end
@@ -28,7 +28,7 @@ class ConversationsController < ApplicationController
       format.html
     end
   end
-  
+
   def destroy
     @conversation.move_to_trash(current_user)
     flash[:success] = 'The conversation was moved to trash.'

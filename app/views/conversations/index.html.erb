@@ -10,16 +10,15 @@
   </div>
 
   <div class="col-sm-9">
+    <% if @box == 'trash' %>
+      <p><%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-empty-trash', method: :delete,
+                     data: {confirm: 'Are you sure?'} %></p>
+                     <ul class="list-group">
+    <% end %>
     <ul class="list-group">
       <%= render partial: 'conversations/conversationheader', collection: @conversations, as: :conversation %>
     </ul>
   </div>
 
-  <div class="col-sm-9">
-    <% if @box == 'trash' %>
-      <p><%= link_to 'Empty trash', empty_trash_conversations_path, class: 'btn btn-trash', method: :delete,
-                     data: {confirm: 'Are you sure?'} %></p>
-                     <ul class="list-group">
-    <% end %>
-  </div>
+
 </div>
