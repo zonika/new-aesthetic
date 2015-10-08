@@ -21,7 +21,7 @@ prawn_document(:page_layout => :portrait) do |pdf|
       pdf.font('Helvetica',:style => :italic)
       pdf.text(piece.name, :styles => [:italics])
       pdf.font('Helvetica',:style => :normal)
-      pdf.text(current_user.full_name)                                                      
+      pdf.text(User.find(piece.user_id).full_name)                                                      
     end
 
     pdf.move_down(120)
