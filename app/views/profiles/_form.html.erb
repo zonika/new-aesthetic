@@ -1,9 +1,11 @@
 <%= form_for @user, url: profile_path(@user), class: 'form-horizontal' do |f| %>
 	<div class="row">
 		<% @user.works.each do |work| %>
+			<% if work.save %>
 			<div class="col-md-4">
 				<%= f.radio_button :masterpiece, work.id %> masterpiece<br><%= image_tag work.image.url(:medium) %>
 			</div>
+			<% end %>
 		<% end %>
 	</div>
 	<br>
