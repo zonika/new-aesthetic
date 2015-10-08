@@ -165,6 +165,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    pdfkit (0.8.2)
     pg (0.18.3)
     pg_search (1.0.5)
       activerecord (>= 3.1)
@@ -311,6 +312,7 @@ DEPENDENCIES
   jquery-rails
   miro
   paperclip
+  pdfkit
   pg
   pg_search
   pry

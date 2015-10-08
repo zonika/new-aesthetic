@@ -83,3 +83,5 @@ gem 'devise'
 #color searching gems
 gem 'miro'
 gem 'colormath'
+
+gem 'pdfkit'
