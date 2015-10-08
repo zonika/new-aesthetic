@@ -31,8 +31,7 @@
       }
     </style>
     <div id="bg">
-	    <%# user = User.random_user %>
-      <% user = User.all.last %>
+	    <% user = User.random_user %>
 	    <%= image_tag Work.find(user.masterpiece).image.url(:large) %>
     </div>
 
