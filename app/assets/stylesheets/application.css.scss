@@ -687,7 +687,14 @@ hr.style-two {
 	background-color: #333333;
 }
 
-
+.tagbox {
+	height: 100px;
+	overflow-y: scroll;
+	display:block;
+}
+.cbox{
+	display:block;
+}
 /* credit text  */
 
 div.footer-text {
