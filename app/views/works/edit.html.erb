@@ -1,11 +1,31 @@
-<%= form_for [@user,@work], url: profile_work_path(@user,@work) do |f| %>
-<%= image_tag @work.image.url(:large) %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.label :tag_list, "Tags:" %>
-<%= f.collection_check_boxes :tag_list, ActsAsTaggableOn::Tag.all, :name, :name %>
-<%= f.label :type, "Add Tag:" %>
-<%= f.text_field :type %>
-<%= f.submit %>
-<% end %>
-<%= link_to "Delete", profile_work_path(@user, @work), method: :delete %>
+<div class="row">
+<div class="col-md-6">
+  <%= image_tag @work.image.url(:large) %>
+</div>
+<div class="col-md-6">
+  <div class="form-horizontal">
+    <%= form_for [@user,@work], url: profile_work_path(@user,@work) do |f| %>
+      <div class="form-group">
+        <%= f.label :name, class: 'control-label' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+				<%= f.label :tag_list, "Tags:", class: "control-label" %>
+			</div>
+      <div class="checkbox tagbox">
+        <%= f.collection_check_boxes(:tag_list, ActsAsTaggableOn::Tag.all, :name, :name) do |b| %>
+        <%= b.label(class:'cbox') {b.check_box + b.text} %>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= f.label :type, "Add Tag:", class: 'control-label' %>
+        <%= f.text_field :type, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+    		<%= f.submit "Save", class: 'btn btn-sm' %>
+    	</div>
+    <% end %>
+  </div>
+  <%= link_to "Delete", profile_work_path(@user, @work), method: :delete, class: 'btn btn-sm' %>
+</div>
+</div>

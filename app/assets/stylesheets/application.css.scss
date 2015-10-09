@@ -347,6 +347,25 @@ div .inner .cover {
 
 }
 
+li.dropdown ul.dropdown-menu {
+	background-color: #000000;
+	li a {
+		color: #CCCCCC;
+	}
+	li a:hover {
+		background: none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		color: rgba(0,255,255,1);
+		text-shadow: 0 2px 15px rgba(255,255,255,0.8);
+	}
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+	background-color: rgba(0,0,0,0);
+}
+
 #query {
 	width: 400px;
 	height: 35px;
@@ -668,6 +687,25 @@ hr.style-two {
 	background-color: #333333;
 }
 
+
 #followers {
 	display: inline-block;
+}
+.tagbox {
+	height: 100px;
+	overflow-y: scroll;
+	display:block;
+}
+.cbox{
+	display:block;
+}
+/* credit text  */
+
+div.footer-text {
+	color:rgba(255,255,255,0.5);
+	transform: rotate(270deg);
+	transform-origin: top left 0;
+	position: fixed;
+	bottom: -5px;
+	right: -340px;
 }

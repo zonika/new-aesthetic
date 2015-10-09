@@ -43,6 +43,11 @@ gem 'pg_search'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# pdf generator
+
+gem 'prawn'
+gem 'prawn-rails'
+
 gem 'dotenv-rails'
 gem "mailboxer"
 gem 'chosen-rails'

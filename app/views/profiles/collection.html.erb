@@ -1,3 +1,10 @@
 <h2>Your Collection</h2>
-<br>
-<%= render current_user.pieces %>
+
+<% if current_user.pieces.any? %>
+  <%= link_to "generate PDF catalog", collection_path(:format => :pdf), class: 'btn btn-sm' %>
+  <br>
+  <br>
+  <%= render current_user.pieces %>
+<% else %>
+  Your collection is empty! <%= link_to "Find", search_path %> some pieces to fill it!
+<% end %>

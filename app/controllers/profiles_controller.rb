@@ -39,6 +39,10 @@ class ProfilesController < ApplicationController
     
 
   def collection
+    respond_to do |format|
+      format.html
+      format.pdf
+    end
   end
 
   def add_piece
