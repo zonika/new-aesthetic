@@ -346,6 +346,25 @@ div .inner .cover {
 
 }
 
+li.dropdown ul.dropdown-menu {
+	background-color: #000000;
+	li a {
+		color: #CCCCCC;
+	}
+	li a:hover {
+		background: none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		color: rgba(0,255,255,1);
+		text-shadow: 0 2px 15px rgba(255,255,255,0.8);
+	}
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+	background-color: rgba(0,0,0,0);
+}
+
 #query {
 	width: 400px;
 	height: 35px;
@@ -675,4 +694,12 @@ hr.style-two {
 }
 .cbox{
 	display:block;
+}
+/* credit text  */
+
+div.container div.footer.navbar-fixed-bottom {
+	text-align:right;
+	color:rgba(255,255,255,0.5);
+	transform: rotate(90deg);
+	transform-origin: top right 0;
 }
