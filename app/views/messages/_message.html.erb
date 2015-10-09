@@ -1,6 +1,7 @@
 <%= form_tag messages_path, method: :post, remote: true do %>
   <div class="modal-body">
     <div class="form-group">
+
       <%= label_tag 'message[subject]', 'Subject' %>
       <%= text_field_tag 'message[subject]', nil, cols: 3, class: 'form-control', required: true %>
     </div>
