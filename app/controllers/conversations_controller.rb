@@ -9,7 +9,6 @@ class ConversationsController < ApplicationController
   def index
     if @box.eql? "inbox"
       @conversations = @mailbox.inbox
-      # this is how you grab the subject = @mailbox.inbox[0].subject
     elsif @box.eql? "sent"
       @conversations = @mailbox.sentbox
     else @box.eql? "trash"

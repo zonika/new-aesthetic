@@ -3,11 +3,22 @@ class MessagesController < ApplicationController
 
   def new
     @chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
+     respond_to do |format|
+       format.html
+       format.js
+     end
   end
 
-  def create
-    recipients = User.where(id: params['recipients'])
-    conversation = current_user.send_message(recipients, params[:message][:body], params[:message][:subject]).conversation
-    flash[:modal_success] = "Message has been sent!"
-  end
+ def create
+   recipients = User.where(id: params[:message][:recipient])
+   if conversation = current_user.send_message(recipients, params[:message][:body], params[:message][:subject]).conversation
+     flash[:modal_success] = "Message has been sent!"
+   else
+     flash[:modal_error] = "Sorry, there was a problem while sending your message. Please try again."
+   end
+   respond_to do |format|
+     format.html
+     format.js
+   end
+ end
 end

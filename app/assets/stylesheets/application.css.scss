@@ -300,8 +300,9 @@ div .inner .cover {
 	background: white;
 	font-size: 19px;
 	font-size: 1.9rem;
-	padding: 0px;
+	padding: 10px;
 	color: #555555;
+	text-indent: 20px;
 }
 
 
@@ -459,7 +460,7 @@ a.btn-trash {
 
 a.btn-empty-trash {
 	background-color: #2E2E2D;
-	margin-left: 430px;
+	margin-left: 80%;
 }
 
 .btn-group-vertical {
@@ -555,7 +556,6 @@ a.btn-empty-trash {
 	font-weight: 300;
 	letter-spacing: 2px;
 	border-radius: 3px;
-	position: absolute;
 	z-index:1;
 }
 
@@ -687,6 +687,10 @@ hr.style-two {
 	background-color: #333333;
 }
 
+
+#followers {
+	display: inline-block;
+}
 .tagbox {
 	height: 100px;
 	overflow-y: scroll;
@@ -697,9 +701,11 @@ hr.style-two {
 }
 /* credit text  */
 
-div.container div.footer.navbar-fixed-bottom {
-	text-align:right;
+div.footer-text {
 	color:rgba(255,255,255,0.5);
-	transform: rotate(90deg);
-	transform-origin: top right 0;
+	transform: rotate(270deg);
+	transform-origin: top left 0;
+	position: fixed;
+	bottom: -5px;
+	right: -340px;
 }
