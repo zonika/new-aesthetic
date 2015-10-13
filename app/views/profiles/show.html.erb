@@ -11,11 +11,22 @@
 	<br>
 
 
-	<% if @user == current_user %>
+	<% if @user == current_user && @user.artist %>
 	<%= link_to "Edit Profile", edit_profile_path %><br>
 	<% end %>
 
 
-<div class="row">
-	<%= render @user.works %>
-</div><br>
+	<div class="row">
+		<% if @user.artist %>
+			<%= render @user.works %>
+		<% else %>
+			<% if @user.pieces.any? %>
+			  <%= link_to "generate PDF catalog", collection_path(:format => :pdf), class: 'btn btn-sm' %>
+			  <br>
+			  <br>
+			  <%= render current_user.pieces %>
+			<% else %>
+			  Your collection is empty! <%= link_to "Find", search_path %> some pieces to fill it!
+			<% end %>
+		<% end %>
+	</div><br>
