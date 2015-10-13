@@ -2,15 +2,14 @@ class WorksController < ApplicationController
 
   def create
     @user = current_user
-    @work = @user.works.new(work_params)
+    wp = work_params
+    if work_params[:type] != ""
+      wp[:tag_list] << work_params[:type]
+      wp.delete(:type)
+    end
+    @work = @user.works.new(wp)
     if @work.save
       colors = Miro::DominantColors.new(params[:work][:image].tempfile.path).to_hex
-      if work_params[:type] != ""
-        wp = work_params
-        wp[:tag_list] << work_params[:type]
-        wp.delete(:type)
-        @work.update(wp)
-      end
       @work.parse_colors(colors)
       if !@user.masterpiece
         @user.update(masterpiece:@work.id)
