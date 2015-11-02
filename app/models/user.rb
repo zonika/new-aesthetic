@@ -56,10 +56,16 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
 
+  # finds a random user for the front page masterpiece
   def self.random_user
     User.where(artist: true).where.not(masterpiece: nil).sample
   end
-
+  
+  # find six random users for the discovery feed
+  def self.randomize_six_users
+    User.where(artist: true).where.not(masterpiece: nil).sample(6)
+  end
+  
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
