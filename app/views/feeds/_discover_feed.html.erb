@@ -1,15 +1,17 @@
 <div class="section">
 	<div style="position:absolute;top:2%;right:0%;">									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %><span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><%= link_to "Profile", profile_path(current_user) %></li>
-										<li><%= link_to "Feed", feed_path %></a></li>
-										<li><%= link_to "Collection", collection_path %></li>
-										<% if current_user.artist %><li><%= link_to 'Messages', conversations_path %></li><% end %>
-										<li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %> </li>
-									</ul>
-</div>
-	<div id="discovery-cover-text" style="display:none"><h1 style="font-size: 6em;">Welcome to Discovery</h1>
-	scroll through the catalog to get a fresh glimpse of new works at new-aesthetic</div>
+		<ul class="dropdown-menu">
+			<li><%= link_to "Profile", profile_path(current_user) %></li>
+			<li><%= link_to "Feed", feed_path %></a></li>
+			<li><%= link_to "Collection", collection_path %></li>
+			<% if current_user.artist %><li><%= link_to 'Messages', conversations_path %></li><% end %>
+			<li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %> </li>
+		</ul>
+	</div>
+	<div id="discovery-cover-text" style="display:none">
+		<h1 style="font-size: 6em;">Welcome to Discovery</h1>
+		scroll through the catalog to get a fresh glimpse of new works at new-aesthetic
+	</div>
 	<%= image_tag 'arrow.png', id: 'arrow', style: 'display:none'  %>
 </div>
 
