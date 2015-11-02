@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
   def discover
-    w = User.where(artist: true).where.not(masterpiece: nil).sample(6)
-    @works = w.collect do |user|
+    users = User.randomize_six_users
+    @works = users.collect do |user|
       Work.find(user.masterpiece)
     end
     render :layout => false
